@@ -6,25 +6,80 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <title>Brad|J - Weather Dashboard</title>
+ 
+
+  <title>ANY GIVEN TEAM</title>
 </head>
 <body>
- <header class="navhead">
-    <div id="logo">
-        <img id="logopic" src="assets/images/logo.png" alt="Logo">
+  <header class=" mdc-top-app-bar mdc-top-app-bar--short">
+    <div class="mdc-top-app-bar__row">
+      <H1 class="center">ANY GIVEN TEAM</H1>
     </div>
- </header>
+  </header>
  <form>
-  <input type="text" class="datepicker">
+    <div class="row">
+        <div class="col s12">
+         
+          <div class="input-field inline">
+            <input id="email_inline" type="email" class="validate">
+            <label for="email_inline">Email/Username</label>
+          </div>
+
+          <div class="container">
+              <br><br><br><br><br><br><br>
+              <div class="col s12 m10 offset-m1 l6 offset-l3">
+            
+                <div class="row">
+                  <form action="" class="col s12 m8 offset-m2 l6 offset-l3">
+                    <div class="row">
+                      <div class="input-field">
+                        <input type=text name="bdate" id="bdate" class="datepicker" required>
+                        <label for="bdate">Game Date</label>
+                      </div>
+                    </div>
+                    
+                  </form>
+                </div>
+            
+              </div>
+          
+        </div>
+      </div>
+  </form>
+
+  
  </form>
  
 
 
+
+
+
+
+
+
+
+
+
+
 <footer>
-  <p id="copyright">Brad|J</p>
+  <p class="center" id="copyright">Team-CBD</p>
+
+
+<script>
+var currYear = (new Date()).getFullYear();
+
+$(document).ready(function() {
+  $(".datepicker").datepicker({
+    defaultDate: new Date(currYear-5,1,31),
+    // setDefaultDate: new Date(2000,01,31),
+    maxDate: new Date(currYear-5,12,31),
+    yearRange: [1928, currYear-5],
+    format: "yyyy/mm/dd"    
+  });
+});
+
+</script>
 </footer>
-
-
 </body>
 </html>

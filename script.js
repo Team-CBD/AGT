@@ -31,3 +31,8 @@ actionItems={[
   <MaterialIcon icon='bookmark' />,
 ]}
 />
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
