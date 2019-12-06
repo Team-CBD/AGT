@@ -12,3 +12,22 @@ var settings = {
 $.ajax(settings).done(function (response) {
 	console.log(response);
 });
+
+
+
+
+//---------Materialize Controls--------------------------
+
+<TopAppBar
+title='Any Given Team'
+short
+navigationIcon={<MaterialIcon
+  icon='menu'
+  onClick={() => console.log('click')}
+/>}
+actionItems={[
+  <MaterialIcon icon='file_download' />,
+  <MaterialIcon icon='print' />,
+  <MaterialIcon icon='bookmark' />,
+]}
+/>
