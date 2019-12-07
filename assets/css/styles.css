@@ -1,0 +1,19 @@
+#team-right {
+    width: 1px;
+    height: 250px;
+    background: white;
+    transition: width 2s;
+    -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
+    right:0;
+    z-index:-10;
+  }
+  
+  #team-right :hover {
+    background: red;
+    width: 500px;
+    z-index:99;
+  }
+ #nfl-logo {
+     width:100px;
+     height:auto;
+ }
