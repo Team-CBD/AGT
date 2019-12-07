@@ -6,23 +6,27 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
+  <link re="stylesheet" href="assets/css/style.css"
 
   <title>ANY GIVEN TEAM</title>
 </head>
-<body>
-  <header class=" mdc-top-app-bar mdc-top-app-bar--short">
-    <div class="mdc-top-app-bar__row">
-      <H1 class="center">ANY GIVEN TEAM</H1>
+<body class="white">
+  <header>
+    <div class="card-panel grey lighten-4">
+      <h1 class="center">ANY GIVEN TEAM</h1>
     </div>
   </header>
  <form>
     <div class="row">
-        <div class="col s12">
-         
+        <div class="col s12 center">
+          <div>
+           <img id="mainlogo" src="assets/img/nfl.gif">
+          </div>
           <div class="input-field inline">
+            <h3>Enter Your E-mail First</h3>
             <input id="email_inline" type="email" class="validate">
-            <label for="email_inline">Email/Username</label>
+            
+            <label for="email_inline">Email</label>
           </div>
 
           <div class="container">
@@ -32,9 +36,10 @@
                 <div class="row">
                   <form action="" class="col s12 m8 offset-m2 l6 offset-l3">
                     <div class="row">
-                      <div class="input-field">
-                        <input type=text name="bdate" id="bdate" class="datepicker" required>
-                        <label for="bdate">Game Date</label>
+                     <div id="team-left" class="card"></div>
+                     <div id="team-right" class="card"></div>
+                      <div class="card"></div>
+                          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Then Pick Your Game</a>
                       </div>
                     </div>
                     
@@ -48,38 +53,26 @@
   </form>
 
   
- </form>
  
 
 
 
+  <footer class="page-footer grey lighten-3">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text"></h5>
+            <p class="grey-text text-lighten-4">Footer</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2019 Team-CBD
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
 
-
-
-
-
-
-
-
-
-<footer>
-  <p class="center" id="copyright">Team-CBD</p>
-
-
-<script>
-var currYear = (new Date()).getFullYear();
-
-$(document).ready(function() {
-  $(".datepicker").datepicker({
-    defaultDate: new Date(currYear-5,1,31),
-    // setDefaultDate: new Date(2000,01,31),
-    maxDate: new Date(currYear-5,12,31),
-    yearRange: [1928, currYear-5],
-    format: "yyyy/mm/dd"    
-  });
-});
-
-</script>
-</footer>
 </body>
 </html>
