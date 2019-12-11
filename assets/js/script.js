@@ -1,6 +1,9 @@
 var dropdown = document.querySelector("#dropFill");
 var cityName = "London";
 var date = "2019-12-08";
+var gameId = "";
+var aaaa = document.querySelector("#dropdownTrigger");
+
 var settings = {
 	"async": true,
 	"crossDomain": true,
@@ -8,8 +11,13 @@ var settings = {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
-		"x-rapidapi-key": "e0ade11d95mshb80e77a3dfc354cp1c1a92jsn4cc6da73dcc7"
+		"x-rapidapi-key": "84cbe2eb38msh070a5cb084d0089p1caeebjsn7e60c285acd6"
 	}
+}
+
+function gameIdGet(event)
+{
+	console.log(event.target.id)
 }
 
 function getLatLon(city)
@@ -56,15 +64,35 @@ function showWeather(latitude, longitude) //TODO: get latitude and longitude fro
 	{
 		$.each(response.events, function(index,val)
 		{
-			dropItems += "<a class='dropdown-item' href='#'>" + val.teams[0].name + " vs. " + val.teams[1].name + "</a>";
+			dropItems += "<div class='dropdown-item' onclick='gameIdGet(event)' id=" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
 			dropItems += "<br>"; //TODO: change from bootstrap format to materialize
 		});
 		$("#dropFill").html(dropItems);
-		console.log(response);
 	});
 }*/
 
-dropdown.addEventListener("click", function()
+function fillDropDown()
+{
+	var dropItems = "";
+	$.ajax({
+		url: "https://api.openweathermap.org/data/2.5/forecast",
+		method: "GET",
+		data:{
+			q: cityName,
+			appid: "166a433c57516f51dfab1f7edaed8413",
+			units: "imperial"
+		}
+	}).then(function(response){
+		console.log(response);
+		$.each(response.list, function(index){
+			dropItems += "<div class='dropdown-item' onclick='gameIdGet(event)' id=" + response.list[index].main.temp + ">" + response.list[index].main.temp + "</div>";
+			dropItems += "<br>";
+		});
+		$("#dropFill").html(dropItems);
+	});
+}
+
+dropdownTrigger.addEventListener("click", function()
 {
 	fillDropDown();
 });
