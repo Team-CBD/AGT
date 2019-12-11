@@ -23,15 +23,15 @@
           <div>
            <img id="mainlogo" src="assets/img/nfl.gif">
           </div>
-          <div class="input-field inline">
+          <div id="email-area" class="input-field inline">
             <h3>Enter Your E-mail First</h3>
             <input id="email_inline" type="email" class="validate">
-            
-            <label for="email_inline">Email</label>
+            <button id="submit">submit</button>
+            <label for="email_inline">Required</label>
           </div>
 
           <div class="container">
-              <br><br><br><br><br><br><br>
+              <br><br><br>
               <div class="col s12 m10 offset-m1 l6 offset-l3">
             
                 <div class="row">
@@ -40,7 +40,7 @@
                         
                       <div class="card"></div>
 
-                          <a class='dropdown-trigger btn' id="dropFill" href='#' data-target='dropdown1'>Then Pick Your Game</a>
+                          <a class='dropdown-trigger btn' id="drop-fill" href='#' data-target='dropdown1'>Then Pick Your Game</a>
                           
                         </div>
                         
@@ -84,8 +84,47 @@
                 });
             }
         }).render('#paypal-button-container');
-    </script>
+    //-------------------------------
 
+      // Check if the localStorage object exists
+      if(localStorage) {
+	      $(document).ready(function() {
+		      $("#submit").click(function() {
+			      // Get input name
+			      var eMail = $("#email_inline").val();
+			
+		      	// Store data
+    	      	localStorage.setItem("email_inline", eMail);
+	      		console.log("Your e-mail is saved.");
+      		});
+      		$(".access").click(function() {
+	      		// Retrieve data
+         		alert("Hi, " + localStorage.getItem("email_inline"));
+		      });
+	      });
+        } else {
+            alert("Sorry, your browser do not support local storage.");
+          }
+        //---Hide n Seek------
+        $("#paypal-button-container").hide();
+        $("#drop-fill").hide();
+
+        $("#submit").click(function(){
+         $("#drop-fill").show(500);
+         $("#email-area").hide(250);
+        });
+
+      //  $("#drop-fill").click(function(){
+      //   $("#email-area").hide(500);
+      //  });
+        
+        $("#drop-fill").click(function(){
+         $("#drop-fill").hide();
+         $("#paypal-button-container").show(1000);
+        });
+    
+    </script>
+<script type="text/Javascript" src="assets/js/script.js"></script>
   <footer class="page-footer grey lighten-3">
       <div class="container">
         <div class="row">
@@ -102,23 +141,7 @@
       </div>
     </footer>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-    var instance = M.Sidenav.getInstance(elem);
-  });
 
-  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-  //var collapsibleElem = document.querySelector('.collapsible');
-  //var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-  </script>
-  <script type="text/Javascript" src="assets/js/script.js"></script>
+  
 </body>
 </html>
