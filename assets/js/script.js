@@ -1,4 +1,5 @@
 var dropdown = document.querySelector("#dropFill");
+var dropdown = document.querySelector("#dropFill");
 var cityName = "London";
 var date = "2019-12-08";
 var gameId = "";
