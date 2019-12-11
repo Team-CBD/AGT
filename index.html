@@ -39,6 +39,7 @@
                     <div class="row">
                         
                       <div class="card"></div>
+
                           <a class='dropdown-trigger btn' id="dropFill" href='#' data-target='dropdown1'>Then Pick Your Game</a>
                           
                         </div>
@@ -100,5 +101,24 @@
         </div>
       </div>
     </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+    var instance = M.Sidenav.getInstance(elem);
+  });
+
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  //var collapsibleElem = document.querySelector('.collapsible');
+  //var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+  </script>
+  <script type="text/Javascript" src="assets/js/script.js"></script>
 </body>
 </html>
