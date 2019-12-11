@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	console.log("aaaaaaaa");
+
+
+	
 })
 var date = "2019-12-09";
 var settings = {
