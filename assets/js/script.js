@@ -12,7 +12,7 @@ var settings = {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
-		"x-rapidapi-key": "84cbe2eb38msh070a5cb084d0089p1caeebjsn7e60c285acd6"
+		"x-rapidapi-key": "e0ade11d95mshb80e77a3dfc354cp1c1a92jsn4cc6da73dcc7"
 	}
 }
 
@@ -24,11 +24,42 @@ function gameIdGet(event)
 	{
 		var index = response.events.findIndex(x => x.event_id === gameId);
 		console.log(index);
+		showTeams(index);
 		$("#drop-fill").hide(5);
 		$(".team-banner").show(500);
 	});
 }
 //TODO: function that does all the logos and pastes the team scores up
+
+function showTeams(index)
+{
+	$.ajax(settings).done(function(response)
+	{
+		document.body.innerHTML = document.body.innerHTML.replace("team name 1", response.events[index].teams[0].name);
+		document.body.innerHTML = document.body.innerHTML.replace("team name 2", response.events[index].teams[1].name);
+		console.log(response);
+		console.log(response.events[index].teams[0].is_home);
+		consol
+		if(response.events[index].teams[0].is_home === true)
+		{
+			document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Home");
+		}
+		else
+		{
+			document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Away");
+		}
+
+		if(response.events[index].teams[1].is_home === true)
+		{
+			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Home");
+		}
+		else
+		{
+			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Away");
+		}
+	})
+	
+}
 
 function getLatLon(city)
 {
@@ -78,7 +109,7 @@ function fillDropDown()
 			dropItems += "<br>"; 
 		});
 		$("#dropFill").html(dropItems);
-		console.log(response);
+		//console.log(response);
 	});
 }
 
