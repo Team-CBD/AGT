@@ -41,6 +41,7 @@ function gameIdGet(event) //TODO: change so fits with rundown api
 			{
 				console.log("eh");
 			}
+			else{console.log("yeah");}
 		});
 	});
 }
