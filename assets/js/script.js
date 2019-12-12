@@ -19,32 +19,14 @@ var settings = {
 function gameIdGet(event) //TODO: change so fits with rundown api
 {
 	var gameId = event.target.id;
-	$.ajax({
-		url: "https://api.openweathermap.org/data/2.5/forecast",
-		method: "GET",
-		data: {
-			q: "London",
-			appid: "166a433c57516f51dfab1f7edaed8413",
-			units: "imperial"
-		}
-	})
-	.then(function(response)
+	console.log(gameId);
+	$.ajax(settings).done(function(response)
 	{
-		console.log(gameId);
-		var convert = parseFloat(gameId);
-		console.log(convert);
-		var something = response.list.find(x => x.main.temp === convert);
-		console.log(something);
-		$.each(response.list, function(index)
-		{
-			if(response.list[index].main.temp === convert)
-			{
-				console.log("eh");
-			}
-			else{console.log("yeah");}
-		});
+		var index = response.events.findIndex(x => x.event_id === gameId);
+		console.log(index);
 	});
 }
+//TODO: function that does all the logos and pastes the team scores up
 
 function getLatLon(city)
 {
@@ -83,22 +65,22 @@ function showWeather(latitude, longitude) //TODO: get latitude and longitude fro
 		});
 }
 
-/*function fillDropDown()
+function fillDropDown()
 {
 	var dropItems = "";
 	$.ajax(settings).done(function(response)
 	{
 		$.each(response.events, function(index,val)
 		{
-			dropItems += "<a class='dropdown-item' onclick='gameIdGet(event)' id='yeah'>" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
+			dropItems += "<a class='dropdown-item' onclick='gameIdGet(event)' id=" + response.events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
 			dropItems += "<br>"; 
 		});
 		$("#dropFill").html(dropItems);
 		console.log(response);
 	});
-}*/
+}
 
-function fillDropDown()
+/*function fillDropDown()
 {
 	var dropItems = "";
 	$.ajax({
@@ -117,7 +99,7 @@ function fillDropDown()
 		});
 		$("#dropFill").html(dropItems);
 	});
-}
+}*/
 
 dropdownTrigger.addEventListener("click", function()
 {
