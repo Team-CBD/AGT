@@ -6,8 +6,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- Compiled and minified CSS -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link re="stylesheet" href="assets/css/styles.css"></link>
+  <link rel="stylesheet" href="assets/css/styles.css">
 
   <title>ANY GIVEN TEAM</title>
 </head>
@@ -17,7 +18,7 @@
       <h1 class="center">ANY GIVEN TEAM</h1>
     </div>
   </header>
- <form>
+ 
     <div class="row">
         <div class="col s12 center">
           <div>
@@ -25,40 +26,78 @@
           </div>
           <div id="email-area" class="input-field inline">
             <h3>Enter Your E-mail First</h3>
-            <input id="email_inline" type="email" class="validate">
-            <button id="submit">submit</button>
-            <label for="email_inline">Required</label>
+            <form>
+              <input id="email_inline" type="email" class="validate">
+              <button class="red accent-4 btn" id="submit">submit</button>
+            </form>
           </div>
 
           <div class="container">
-              <br><br><br>
-              <div class="col s12 m10 offset-m1 l6 offset-l3">
+              <br><br>
+
+              <br>
+              
             
                 <div class="row">
-                  <form action="" class="col s12 m8 offset-m2 l6 offset-l3">
+                  <form action="" class="col s12 m4 offset-m2 l6 offset-l3">
                     <div class="row">
                         
-                      <div class="card"></div>
-
-                          <a class='dropdown-trigger btn' id="dropdownTrigger" data-target='dropdown1'>Then Pick Your Game</a>
+                      <div id="drop-fill" class="drop-fill">
+                      <h3>Pick the scheduled game you want to challenge your Buddy in!</h3>
+                          <button class='dropdown-trigger btn' id="dropfill-spot" data-target='dropdown1'>Then Pick Your Game</button>
                           <div id="dropFill"></div>
-                        </div>
-                        
+                        </div>     
                     </div>
-                    
-                  </form>
-
                 </div>
-              </div>
+                  </form>
+                  
+                <div id ="email-output1"></div>
+                <div id ="email-output2"></div>
+
+
+
+              <form class="tShirts">
+                <div id = "leftT-shirt">
+                  <img class="t-shirtpic" ref="assets/img/plain_t_shirt.png">
+                </div>
+                <div id = "rightT-shirt">
+                  <img class="t-shirtpic" ref="assets/img/plain_t_shirt.png">
+                </div>
+              </form>
+
+
+
+
+                <div class="team-banner">
+                  <form>
+                      <button id = "left-team" class="leftteam card-panel">
+                        <img id="team-logo">team name
+                        <div id="team-info1">Info 1</div>
+                        <div id="team-info2">Data 2</div>
+                        <div id="team-info3">Stat 3</div>
+                      </button>    
+                      <button id = "right-team" class="rightteam card-panel">
+                        <img id="team-logo">team name
+                        <div id="team-info1">Info 1</div>
+                        <div id="team-info2">Data 2</div>
+                        <div id="team-info3">Stat 3</div>
+                      </button>
+                    </form>
+                </div>
+            </div>
+          </div>
           
-        </div>
       </div>
-  </form>
+   
+  
 
 
 
 
-    <div id="paypal-button-container" class="pay-pal center"></div>
+    <div id="paypal-button-container" class="pay-pal center">
+        <h3>Stage payment for the Opposing Team Shirt to be sent to your Buddy!</h3>
+        <h4>Paid for only if your team loses!</h4>
+    </div>
     <script src="https://www.paypal.com/sdk/js?client-id=AYkcxhdiXSJNPcAT4-BZbgxDPY0Xamj23EiUVIGqaxt6W3yizs9OOAoB1g0RpdZ4CasEyWT1sFRLlP1p&currency=USD" data-sdk-integration-source="button-factory"></script>
     <script>
         paypal.Buttons({
@@ -84,8 +123,9 @@
                 });
             }
         }).render('#paypal-button-container');
-    //-------------------------------
+      </script>
 
+    <script>
       // Check if the localStorage object exists
       if(localStorage) {
 	      $(document).ready(function() {
@@ -103,25 +143,61 @@
 		      });
 	      });
         } else {
-            alert("Sorry, your browser do not support local storage.");
-          }
+            alert("Sorry, your browser does not support local storage.");
+          };
+      </script>
+
+    <script>
+
         //---Hide n Seek------
-        $("#paypal-button-container").hide();
-        $("#drop-fill").hide();
-
-        $("#submit").click(function(){
-         $("#drop-fill").show(500);
-         $("#email-area").hide(250);
-        });
-
-      //  $("#drop-fill").click(function(){
-      //   $("#email-area").hide(500);
-      //  });
+    $(document).ready(function(){
+      $("#paypal-button-container").hide();
+      $("#drop-fill").hide();
+      $(".team-banner").hide();
+      $("#rightT-shirt").hide();
+      $("#leftT-shirt").hide();
+      
+        //--------------------------------
+      $("#submit").click(function(){
+          event.preventDefault();
+          $("#email-area").hide(5);
+          $("#drop-fill").show(500);
+          //$("#email-output1").append("<p>Player 1: " + localStorage.getItem("email_inline")"</p>");
         
-        $("#drop-fill").click(function(){
-         $("#drop-fill").hide();
-         $("#paypal-button-container").show(1000);
-        });
+      });
+
+      $("#dropfill-spot").click(function(){
+        event.preventDefault();
+        $("#drop-fill").hide(5);
+        $(".team-banner").show(500);
+      });
+
+      $("#team-left").click(function(){
+        event.preventDefault();
+        $(".team-banner").hide(5);
+        $("#rightT-shirt").show(500);
+        
+      });
+      
+      $("#team-right").click(function(){
+        event.preventDefault();
+        $(".team-banner").hide(5);
+        $("#leftT-shirt").show(500);
+        
+      });
+        
+      $("#leftT-shirt").click(function(){
+        event.preventDefault();
+        $("#leftT-shirt").hide(5);
+        $("#paypal-button-container").show(500);     
+      });
+
+      $("#rightT-shirt").click(function(){
+        event.preventDefault();
+        $("#rightT-shirt").hide(5);
+        $("#paypal-button-container").show(500);     
+      });
+    });
     
     </script>
 <script type="text/Javascript" src="assets/js/script.js"></script>
