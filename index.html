@@ -44,7 +44,7 @@
                         
                       <div id="drop-fill" class="drop-fill">
                       <h3>Pick the scheduled game you want to challenge your Buddy in!</h3>
-                          <button class='dropdown-trigger btn' id="dropfill-spot" data-target='dropdown1'>Then Pick Your Game</button>
+                          <a class='dropdown-trigger btn' id="dropdownTrigger" data-target='dropdown1'>Then Pick Your Game</a>
                           <div id="dropFill"></div>
                         </div>     
                     </div>
@@ -167,10 +167,11 @@
         
       });
 
-      $("#dropfill-spot").click(function(){
+      $("#dropdownTrigger").click(function(){
         event.preventDefault();
-        $("#drop-fill").hide(5);
-        $(".team-banner").show(500);
+       // $("#drop-fill").hide(5);
+        $("#dropFill").show(500);
+       // $(".team-banner").show(500);
       });
 
       $("#team-left").click(function(){
