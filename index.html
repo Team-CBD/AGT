@@ -28,7 +28,7 @@
             <h3>Enter Your E-mail First</h3>
             <form>
               <input id="email_inline" type="email" class="validate">
-              <button class="red accent-4 btn" id="submit">submit</button>
+              <button class="red accent-4 btn" id="subMit">submit</button>
             </form>
           </div>
 
@@ -43,8 +43,8 @@
                     <div class="row">
                         
                       <div id="drop-fill" class="drop-fill">
-                      <h3>Pick the scheduled game you want to challenge your Buddy in!</h3>
-                          <a class='dropdown-trigger btn' id="dropdownTrigger" data-target='dropdown1'>Then Pick Your Game</a>
+                      <h3 class="flow-text">Pick the scheduled game you want to challenge your Buddy in!</h3>
+                          <a class='dropdown-trigger' id="dropdownTrigger" data-target='dropdown1'></a>
                           <div id="dropFill"></div>
                         </div>     
                     </div>
@@ -58,10 +58,10 @@
 
               <form class="tShirts">
                 <div id = "leftT-shirt">
-                  <img class="t-shirtpic" ref="assets/img/plain_t_shirt.png">
+                  <img class="t-shirtpic" href="assets/img/plain_t_shirt.png">
                 </div>
                 <div id = "rightT-shirt">
-                  <img class="t-shirtpic" ref="assets/img/plain_t_shirt.png">
+                  <img class="t-shirtpic" href="assets/img/plain_t_shirt.png">
                 </div>
               </form>
 
@@ -90,10 +90,7 @@
       </div>
    
   
-
-
-
-
+    <!--This is the PayPal applet, using paypal's sdk script link, WORKS!-->
     <div id="paypal-button-container" class="pay-pal center">
         <h3>Stage payment for the Opposing Team Shirt to be sent to your Buddy!</h3>
         <h4>Paid for only if your team loses!</h4>
@@ -124,12 +121,13 @@
             }
         }).render('#paypal-button-container');
       </script>
-
+    
+    <!--This is the Local Storage for the player's email address/username-->
     <script>
       // Check if the localStorage object exists
       if(localStorage) {
 	      $(document).ready(function() {
-		      $("#submit").click(function() {
+		      $("#subMit").click(function() {
 			      // Get input name
 			      var eMail = $("#email_inline").val();
 			
@@ -147,18 +145,19 @@
           };
       </script>
 
+    <!--  Below is the transition flow for the frontend. When one element is used, it hides and brings in the next-->
     <script>
 
         //---Hide n Seek------
     $(document).ready(function(){
       $("#paypal-button-container").hide();
-      $("#drop-fill").hide();
-      $(".team-banner").hide();
       $("#rightT-shirt").hide();
       $("#leftT-shirt").hide();
+      $("#drop-fill").hide();
+      $(".team-banner").hide();
+
       
-        //--------------------------------
-      $("#submit").click(function(){
+      $("#subMit").click(function(){
           event.preventDefault();
           $("#email-area").hide(5);
           $("#drop-fill").show(500);

@@ -16,7 +16,7 @@ var settings = {
 	}
 }
 
-function gameIdGet(event)
+/*function gameIdGet(event)
 {
 	var gameId = event.target.id;
 	console.log(gameId);
@@ -105,15 +105,16 @@ function fillDropDown()
 	{
 		$.each(response.events, function(index,val)
 		{
-			dropItems += "<a class='dropdown-item' onclick='gameIdGet(event)' id=" + response.events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
+			dropItems += "<br>";
+			dropItems += "<br><a class='dropdown-item btn gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + response.events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
 			dropItems += "<br>"; 
 		});
 		$("#dropFill").html(dropItems);
 		//console.log(response);
 	});
 }
-
-/*function fillDropDown()
+*/
+function fillDropDown()
 {
 	var dropItems = "";
 	$.ajax({
@@ -127,14 +128,15 @@ function fillDropDown()
 	}).then(function(response){
 		console.log(response);
 		$.each(response.list, function(index){
-			dropItems += "<a class='dropdown-item' onclick='gameIdGet(event)' id=" + response.list[index].main.temp + ">" + response.list[index].main.temp + "</div>";
+			dropItems += "<br>";
+			dropItems += "<a class='dropdown-item gameTime btn flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + response.list[index].main.temp + ">" + response.list[index].main.temp + "This is some placeholder ass shit, leave it be, thanks, mgmt.</a>";
 			dropItems += "<br>";
 		});
 		$("#dropFill").html(dropItems);
 	});
-}*/
+}
 
-dropdownTrigger.addEventListener("click", function()
+subMit.addEventListener("click", function()
 {
 	fillDropDown();
 });
