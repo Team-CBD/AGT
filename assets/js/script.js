@@ -16,7 +16,7 @@ var settings = {
 	}
 }
 
-function gameIdGet(event) //TODO: change so fits with rundown api
+function gameIdGet(event)
 {
 	var gameId = event.target.id;
 	console.log(gameId);
@@ -24,6 +24,8 @@ function gameIdGet(event) //TODO: change so fits with rundown api
 	{
 		var index = response.events.findIndex(x => x.event_id === gameId);
 		console.log(index);
+		$("#drop-fill").hide(5);
+		$(".team-banner").show(500);
 	});
 }
 //TODO: function that does all the logos and pastes the team scores up
@@ -47,7 +49,7 @@ function getLatLon(city)
 	})
 }
  //TODO: get date from user input and pass into darksky
-function showWeather(latitude, longitude) //TODO: get latitude and longitude from openweathermap and pass into darksky call
+function showWeather(latitude, longitude)
 {
 	var key = "cdd78f42904565ed23569354e5f2ea6c";
 	var time = "1575676800";
