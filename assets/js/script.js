@@ -74,6 +74,7 @@ function fillDropDown()
 	{
 		$.each(response.events, function(index,val)
 		{
+			dropItems += "<br>";
 			dropItems += "<br><a class='dropdown-item btn gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + response.events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
 			dropItems += "<br>"; 
 		});
