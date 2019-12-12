@@ -35,6 +35,13 @@ function gameIdGet(event) //TODO: change so fits with rundown api
 		console.log(convert);
 		var something = response.list.find(x => x.main.temp === convert);
 		console.log(something);
+		$.each(response.list, function(index)
+		{
+			if(response.list[index].main.temp === convert)
+			{
+				console.log("eh");
+			}
+		});
 	});
 }
 
@@ -82,8 +89,8 @@ function showWeather(latitude, longitude) //TODO: get latitude and longitude fro
 	{
 		$.each(response.events, function(index,val)
 		{
-			dropItems += "<div class='dropdown-item' onclick='gameIdGet(event)' id='yeah'>" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
-			dropItems += "<br>"; //TODO: change from bootstrap format to materialize
+			dropItems += "<a class='dropdown-item' onclick='gameIdGet(event)' id='yeah'>" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
+			dropItems += "<br>"; 
 		});
 		$("#dropFill").html(dropItems);
 		console.log(response);
