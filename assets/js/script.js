@@ -1,14 +1,17 @@
 var dropdown = document.querySelector("#dropFill");
 var dropdown = document.querySelector("#dropFill");
-var cityName = "London";
-var date = "2019-12-08";
+var date = new Date(); //full year month date
+var day = String(date.getDate()).padStart(2, '0');
+var month = String(date.getMonth() + 1).padStart(2, '0');
+var year = date.getFullYear();
+var today = year + "-" + month + "-" + day;
+console.log(today);
 var gameId = "";
-var aaaa = document.querySelector("#dropdownTrigger");
 
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://therundown-therundown-v1.p.rapidapi.com/sports/2/events/" + date,
+	"url": "https://therundown-therundown-v1.p.rapidapi.com/sports/2/events/" + today,
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
@@ -16,7 +19,7 @@ var settings = {
 	}
 }
 
-/*function gameIdGet(event)
+function gameIdGet(event)
 {
 	var gameId = event.target.id;
 	console.log(gameId);
@@ -43,6 +46,7 @@ function showTeams(index)
 		if(response.events[index].teams[0].is_home === true)
 		{
 			document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Home");
+			getLatLon(response.events[index].teams_normalized[0].name, index);
 		}
 		else
 		{
@@ -52,6 +56,7 @@ function showTeams(index)
 		if(response.events[index].teams[1].is_home === true)
 		{
 			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Home");
+			getLatLon(response.events[index].teams_normalized[1].name, index);
 		}
 		else
 		{
@@ -61,7 +66,7 @@ function showTeams(index)
 	
 }
 
-function getLatLon(city)
+function getLatLon(city, index)
 {
 	$.ajax({
 		url: "https://api.openweathermap.org/data/2.5/forecast",
@@ -76,20 +81,24 @@ function getLatLon(city)
 	{
 		var latitude = response.city.coord.lat;
 		var longitude = response.city.coord.lon;
-		showWeather(latitude, longitude);
+		showWeather(latitude, longitude, index);
 	})
 }
- //TODO: get date from user input and pass into darksky
-function showWeather(latitude, longitude)
+
+function showWeather(latitude, longitude, index)
 {
 	var key = "cdd78f42904565ed23569354e5f2ea6c";
-	var time = "1575676800";
+	$.ajax(settings).done(function(response)
+	{
+		var time = response.events[index].event_date;
+		var unixTime = moment(time).unix();
+	})
 	$.ajax(
 		{
 			crossDomain: true,
 			async: true,
 			dataType: "jsonp",
-			url: "https://api.darksky.net/forecast/" + key + "/" + latitude + "," + longitude + "," + time,
+			url: "https://api.darksky.net/forecast/" + key + "/" + latitude + "," + longitude + "," + unixTime,
 			method: "GET",
 		}).then(function(response)
 		{
@@ -113,8 +122,8 @@ function fillDropDown()
 		//console.log(response);
 	});
 }
-*/
-function fillDropDown()
+
+/*function fillDropDown()
 {
 	var dropItems = "";
 	$.ajax({
@@ -134,7 +143,7 @@ function fillDropDown()
 		});
 		$("#dropFill").html(dropItems);
 	});
-}
+}*/
 
 subMit.addEventListener("click", function()
 {
