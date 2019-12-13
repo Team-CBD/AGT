@@ -3,6 +3,7 @@
 }
 .card-panel {
   margin: .25rem 0 .25rem 0;
+  opacity: 80%;
 }
 .bkgimg {
   background-image:url("BKGGIF.gif")!important;

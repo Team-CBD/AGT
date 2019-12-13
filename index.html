@@ -21,7 +21,7 @@
         <h4 class="player1 col left"> Player 1 </h4><h4 class="player2 col right"> Player 2  </h4>
         </div>
         <div class="row">
-        <div class="col red-text left" id ="email-output1" >Your@email.here</div><div class="col blue-text right" id ="email-output2">some@thing.com</div><p class="center">VS</p>
+        <div class="col red-text left" id ="email-output1" >your@email.here</div><div class="col blue-text right" id ="email-output2">some@thing.com</div><p class="center">VS</p>
         </div>
       </form>
     </div>
@@ -36,7 +36,7 @@
             <h3>Enter Your E-mail First</h3>
             <form>
               <input id="email_inline" type="email" class="white z-depth-3 validate">
-              <button class="red pulse z-depth-2 accent-4 btn" id="subMit">submit</button>
+              <button class="red pulse z-depth-2 accent-4 btn" id="subMit">Submit</button>
             </form>
           </div>
 
@@ -50,9 +50,9 @@
                   <form>
                     <div class="row">
                         
-                      <div id="drop-fill" class="drop-fill">
+                      <div class="drop-fill">
                       <h3 class="white-text flow-text">Pick the scheduled game you want to challenge your Buddy in!</h3>
-                          <a class='dropdown-trigger' id="dropdownTrigger" data-target='dropdown1'></a>
+                          <!-- <a class='dropdown-trigger' id="dropdownTrigger" data-target='dropdown1'></a> -->
                           <div id="dropFill"></div>
                         </div>     
                     </div>
@@ -67,10 +67,10 @@
 
               <form class="tShirts">
                 <div id = "leftT-shirt">
-                  <img class="t-shirtpic" href="assets/img/shirt.jpg">
+                  <img class="t-shirtpic" src="assets/img/plain_t_shirt.png">
                 </div>
                 <div id = "rightT-shirt">
-                  <img class="t-shirtpic" href="assets/img/shirt.jpg">
+                  <img class="t-shirtpic" src="assets/img/plain_t_shirt.png">
                 </div>
               </form>
 
@@ -80,16 +80,16 @@
                 <form id="team-banner">
                   <h2>Pick Your Team</h2>
                       <button id ="left-team" class="leftteam card-panel">
-                        <img id="team-logo">team name 1
-                        <div id="team-info1">Info Left</div>
-                        <div id="team-info2">Data 2</div>
-                        <div id="team-info3">Stat 3</div>
+                        <div id="team-logo-left">team name 1
+                        <div id="team-info1-left">Info Left</div>
+                        <div id="team-info2-left">Data 2</div>
+                        <div id="team-info3-left">Stat 3</div>
                       </button>    
                       <button id ="right-team" class="rightteam card-panel">
-                        <img id="team-logo">team name 2
-                        <div id="team-info1">Info Right</div>
-                        <div id="team-info2">Data 2</div>
-                        <div id="team-info3">Stat 3</div>
+                        <div id="team-logo-right">team name 2
+                        <div id="team-info1-right">Info Right</div>
+                        <div id="team-info2-right">Data 2</div>
+                        <div id="team-info3-right">Stat 3</div>
                       </button>
                  
                 </form>
@@ -105,102 +105,7 @@
         <h4>Paid for only if your team loses!</h4>
     </div>
     <script src="https://www.paypal.com/sdk/js?client-id=AYkcxhdiXSJNPcAT4-BZbgxDPY0Xamj23EiUVIGqaxt6W3yizs9OOAoB1g0RpdZ4CasEyWT1sFRLlP1p&currency=USD" data-sdk-integration-source="button-factory"></script>
-    <script>
-        paypal.Buttons({
-            style: {
-                shape: 'pill',
-                color: 'gold',
-                layout: 'vertical',
-                label: 'pay',
-                
-            },
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '1'
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                });
-            }
-        }).render('#paypal-button-container');
-      </script>
     
-    <!--This is the Local Storage for the player's email address/username-->
-  <script>
-      // Check if the localStorage object exists
-      if(localStorage) {
-	      $(document).ready(function() {
-		      $("#subMit").click(function() {
-			      // Get input name
-			      var eMail = $("#email_inline").val();
-		      	// Store data
-              localStorage.setItem("email_inline", eMail);
-              document.getElementById("email-output1").innerHTML = localStorage.getItem("email_inline");
-	      		console.log("Your e-mail is saved.:" + eMail);
-      		});
-      		$(".access").click(function() {
-	      		// Retrieve data
-         		alert("Hi, " + localStorage.getItem("email_inline"));
-		      });
-	      });
-        } else {
-            alert("Sorry, your browser does not support local storage.");
-          };
-
-          
-  </script>
-
-    <!--  Below is the transition flow for the frontend. When one element is used, it hides and brings in the next-->
-  <script>
-
-        //---Hide n Seek------
-    $(document).ready(function(){
-      $("#paypal-button-container").hide();
-      $(".tShirts").hide();
-      $("#drop-fill").hide();
-      $("#team-banner").hide();
-
-      
-      $("#subMit").click(function(){
-          event.preventDefault();
-          $("#email-area").hide();
-          $("#drop-fill").show(50);
-      });
-
-      $(".gameTime").click(function(){
-        event.preventDefault();
-        $("#drop-fill").hide();
-        $("#team-banner").show(100);
-      });
-
-      $("#left-team").click(function(){
-        event.preventDefault();
-        $("#team-banner").hide();
-        $(".tShirts").show();
-        $("#leftT-shirt").hide();
-        $("#rightT-shirt").show(50);
-        $("#paypal-button-container").show(50);
-      });
-      
-      $("#right-team").click(function(){
-        event.preventDefault();
-        $("#team-banner").hide();
-        $(".tShirts").show();
-        $("#rightT-shirt").hide();
-        $("#leftT-shirt").show(50);
-        $("#paypal-button-container").show(50);
-      });
-        
-
-    });
-    
-  </script>
 
   <script type="text/Javascript" src="assets/js/script.js"></script>
 
