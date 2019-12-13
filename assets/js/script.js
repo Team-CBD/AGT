@@ -1,22 +1,25 @@
 var dropdown = document.querySelector("#dropFill");
 var dropdown = document.querySelector("#dropFill");
-var cityName = "London";
-var date = "2019-12-08";
+var date = new Date(); //full year month date
+var day = String(date.getDate()).padStart(2, '0');
+var month = String(date.getMonth() + 1).padStart(2, '0');
+var year = date.getFullYear();
+var today = year + "-" + month + "-" + day;
+console.log(today);
 var gameId = "";
-var aaaa = document.querySelector("#dropdownTrigger");
 
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://therundown-therundown-v1.p.rapidapi.com/sports/2/events/" + date,
+	"url": "https://therundown-therundown-v1.p.rapidapi.com/sports/2/events/" + today,
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
-		"x-rapidapi-key": "84cbe2eb38msh070a5cb084d0089p1caeebjsn7e60c285acd6"
+		"x-rapidapi-key": "e0ade11d95mshb80e77a3dfc354cp1c1a92jsn4cc6da73dcc7"
 	}
 }
 
-/*function gameIdGet(event)
+function gameIdGet(event)
 {
 	var gameId = event.target.id;
 	console.log(gameId);
@@ -24,13 +27,102 @@ var settings = {
 	{
 		var index = response.events.findIndex(x => x.event_id === gameId);
 		console.log(index);
+		showTeams(index);
+		getScores(gameId);
 		$("#drop-fill").hide(5);
 		$(".team-banner").show(500);
 	});
 }
 //TODO: function that does all the logos and pastes the team scores up
 
-function getLatLon(city)
+function getScores(gameId)
+{
+	var something = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://therundown-therundown-v1.p.rapidapi.com/events/" + gameId + "?include=all_periods&include=scores",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
+			"x-rapidapi-key": "e0ade11d95mshb80e77a3dfc354cp1c1a92jsn4cc6da73dcc7"
+		}
+	}
+	
+	$.ajax(something).done(function (response) {
+		var homeScore = response.score.score_home;
+		var awayScore = response.score.score_away;
+		var homeTeam = "";
+		var awayTeam = "";
+		if(response.teams[0].is_home === true)
+		{
+			homeTeam = response.teams[0].name;
+			awayTeam = response.teams[1].name;
+		}
+		else
+		{
+			homeTeam = response.teams[1].name;
+			awayTeam = response.teams[0].name
+		}
+
+		if(response.event_status === "STATUS_FINAL")
+		{
+			if(homeScore > awayScore)
+			{
+				console.log(homeTeam + "wins");
+				if(homeTeam === response.teams[0].name)
+				{
+					console.log(homeScore + " - " + awayScore);
+				}
+				else
+				{
+					console.log(awayScore + " - " + homeScore);
+				}
+			}
+			else
+			{
+				console.log(awayTeam + "wins");
+				if(homeTeam === response.teams[0].name)
+				{
+					console.log(homeScore + " - " + awayScore);
+				}
+				else
+				{
+					console.log(awayScore + " - " + homeScore);
+				}
+			}
+		}
+		else
+		{
+			console.log(homeScore + " - " + awayScore);
+		}
+	});
+}
+
+function showTeams(index)
+{
+	$.ajax(settings).done(function(response)
+	{
+		document.body.innerHTML = document.body.innerHTML.replace("team name 1", response.events[index].teams[0].name);
+		document.body.innerHTML = document.body.innerHTML.replace("team name 2", response.events[index].teams[1].name);
+		console.log(response);
+		console.log(response.events[index].teams[0].is_home);
+		if(response.events[index].teams[0].is_home === true)
+		{
+			document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Home");
+			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Away");
+			getLatLon(response.events[index].teams_normalized[0].name, index);
+		}
+		else
+		{
+			document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Away");
+			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Home");
+			getLatLon(response.events[index].teams_normalized[1].name, index);
+		}
+	})
+	
+}
+
+function getLatLon(city, index)
 {
 	$.ajax({
 		url: "https://api.openweathermap.org/data/2.5/forecast",
@@ -45,20 +137,24 @@ function getLatLon(city)
 	{
 		var latitude = response.city.coord.lat;
 		var longitude = response.city.coord.lon;
-		showWeather(latitude, longitude);
+		showWeather(latitude, longitude, index);
 	})
 }
- //TODO: get date from user input and pass into darksky
-function showWeather(latitude, longitude)
+
+function showWeather(latitude, longitude, index)
 {
 	var key = "cdd78f42904565ed23569354e5f2ea6c";
-	var time = "1575676800";
+	$.ajax(settings).done(function(response)
+	{
+		var time = response.events[index].event_date;
+		var unixTime = moment(time).unix();
+	})
 	$.ajax(
 		{
 			crossDomain: true,
 			async: true,
 			dataType: "jsonp",
-			url: "https://api.darksky.net/forecast/" + key + "/" + latitude + "," + longitude + "," + time,
+			url: "https://api.darksky.net/forecast/" + key + "/" + latitude + "," + longitude + "," + unixTime,
 			method: "GET",
 		}).then(function(response)
 		{
@@ -79,11 +175,11 @@ function fillDropDown()
 			dropItems += "<br>"; 
 		});
 		$("#dropFill").html(dropItems);
-		console.log(response);
+		//console.log(response);
 	});
 }
-*/
-function fillDropDown()
+
+/*function fillDropDown()
 {
 	var dropItems = "";
 	$.ajax({
@@ -103,7 +199,7 @@ function fillDropDown()
 		});
 		$("#dropFill").html(dropItems);
 	});
-}
+}*/
 
 subMit.addEventListener("click", function()
 {
