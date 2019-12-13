@@ -89,3 +89,6 @@ button:focus {
   height:100%;
   z-index:149;
 }
+#email-area {
+  opacity:.95;
+}
