@@ -1,5 +1,4 @@
 var dropdown = document.querySelector("#dropFill");
-var dropdown = document.querySelector("#dropFill");
 var date = new Date(); //full year month date
 var day = String(date.getDate()).padStart(2, '0');
 var month = String(date.getMonth() + 1).padStart(2, '0');
@@ -15,7 +14,7 @@ var settings = {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
-		"x-rapidapi-key": "e0ade11d95mshb80e77a3dfc354cp1c1a92jsn4cc6da73dcc7"
+		"x-rapidapi-key": "84cbe2eb38msh070a5cb084d0089p1caeebjsn7e60c285acd6"
 	}
 }
 
@@ -44,7 +43,7 @@ function getScores(gameId)
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
-			"x-rapidapi-key": "e0ade11d95mshb80e77a3dfc354cp1c1a92jsn4cc6da73dcc7"
+			"x-rapidapi-key": "84cbe2eb38msh070a5cb084d0089p1caeebjsn7e60c285acd6"
 		}
 	}
 	
@@ -163,7 +162,7 @@ function showWeather(latitude, longitude, index)
 		});
 }
 
-function fillDropDown()
+/*function fillDropDown()
 {
 	var dropItems = "";
 	$.ajax(settings).done(function(response)
@@ -177,16 +176,16 @@ function fillDropDown()
 		$("#dropFill").html(dropItems);
 		//console.log(response);
 	});
-}
+}*/
 
-/*function fillDropDown()
+function fillDropDown()
 {
 	var dropItems = "";
 	$.ajax({
 		url: "https://api.openweathermap.org/data/2.5/forecast",
 		method: "GET",
 		data:{
-			q: cityName,
+			q: "London",
 			appid: "166a433c57516f51dfab1f7edaed8413",
 			units: "imperial"
 		}
@@ -199,7 +198,7 @@ function fillDropDown()
 		});
 		$("#dropFill").html(dropItems);
 	});
-}*/
+}
 
 subMit.addEventListener("click", function()
 {
