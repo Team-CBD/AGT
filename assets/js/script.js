@@ -28,11 +28,75 @@ function gameIdGet(event)
 		var index = response.events.findIndex(x => x.event_id === gameId);
 		console.log(index);
 		showTeams(index);
+		getScores(gameId);
 		$("#drop-fill").hide(5);
 		$(".team-banner").show(500);
 	});
 }
 //TODO: function that does all the logos and pastes the team scores up
+
+function getScores(gameId)
+{
+	var something = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://therundown-therundown-v1.p.rapidapi.com/events/" + gameId + "?include=all_periods&include=scores",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "therundown-therundown-v1.p.rapidapi.com",
+			"x-rapidapi-key": "e0ade11d95mshb80e77a3dfc354cp1c1a92jsn4cc6da73dcc7"
+		}
+	}
+	
+	$.ajax(something).done(function (response) {
+		var homeScore = response.score.score_home;
+		var awayScore = response.score.score_away;
+		var homeTeam = "";
+		var awayTeam = "";
+		if(response.teams[0].is_home === true)
+		{
+			homeTeam = response.teams[0].name;
+			awayTeam = response.teams[1].name;
+		}
+		else
+		{
+			homeTeam = response.teams[1].name;
+			awayTeam = response.teams[0].name
+		}
+
+		if(response.event_status === "STATUS_FINAL")
+		{
+			if(homeScore > awayScore)
+			{
+				console.log(homeTeam + "wins");
+				if(homeTeam === response.teams[0].name)
+				{
+					console.log(homeScore + " - " + awayScore);
+				}
+				else
+				{
+					console.log(awayScore + " - " + homeScore);
+				}
+			}
+			else
+			{
+				console.log(awayTeam + "wins");
+				if(homeTeam === response.teams[0].name)
+				{
+					console.log(homeScore + " - " + awayScore);
+				}
+				else
+				{
+					console.log(awayScore + " - " + homeScore);
+				}
+			}
+		}
+		else
+		{
+			console.log(homeScore + " - " + awayScore);
+		}
+	});
+}
 
 function showTeams(index)
 {
@@ -42,25 +106,17 @@ function showTeams(index)
 		document.body.innerHTML = document.body.innerHTML.replace("team name 2", response.events[index].teams[1].name);
 		console.log(response);
 		console.log(response.events[index].teams[0].is_home);
-		consol
 		if(response.events[index].teams[0].is_home === true)
 		{
 			document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Home");
+			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Away");
 			getLatLon(response.events[index].teams_normalized[0].name, index);
 		}
 		else
 		{
 			document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Away");
-		}
-
-		if(response.events[index].teams[1].is_home === true)
-		{
 			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Home");
 			getLatLon(response.events[index].teams_normalized[1].name, index);
-		}
-		else
-		{
-			document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Away");
 		}
 	})
 	
