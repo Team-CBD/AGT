@@ -1,9 +1,17 @@
 #mainLogo {
   width:200px;
 }
+#agtlogo {
+  width:180px;
+  height:180px;
+}
+#footerlogo {
+  width:240px;
+  height:auto;
+}
 .card-panel {
   margin: .25rem 0 .25rem 0;
-  opacity: 80%;
+  opacity: 95%;
 }
 .bkgimg {
   background-image:url("BKGGIF.gif")!important;
