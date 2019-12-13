@@ -15,10 +15,10 @@
 }
 .bkgimg {
   background-image:url("BKGGIF.gif")!important;
-  background-position:right;
+  background-position:center;
   background-color:none!important;
   background-repeat:no-repeat;
-  background-size:contain;
+  background-size:fill;
 }
 #team-banner {
   z-index:299;
