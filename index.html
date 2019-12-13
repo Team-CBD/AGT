@@ -15,7 +15,7 @@
 <body class="white">
   <header>
     <div class="card-panel grey lighten-4">
-      <h1 class="center">ANY GIVEN TEAM</h1>
+      <h1 class="center">ANY GIVEN TEAM</h1><div class="col-4" id ="email-output1"></div>
     </div>
   </header>
  
@@ -51,7 +51,7 @@
                 </div>
                   </form>
                   
-                <div id ="email-output1"></div>
+                
                 <div id ="email-output2"></div>
 
 
@@ -123,17 +123,17 @@
       </script>
     
     <!--This is the Local Storage for the player's email address/username-->
-    <script>
+  <script>
       // Check if the localStorage object exists
       if(localStorage) {
 	      $(document).ready(function() {
 		      $("#subMit").click(function() {
 			      // Get input name
 			      var eMail = $("#email_inline").val();
-			
 		      	// Store data
-    	      	localStorage.setItem("email_inline", eMail);
-	      		console.log("Your e-mail is saved.");
+              localStorage.setItem("email_inline", eMail);
+              //document.html("email_inline", email);
+	      		console.log("Your e-mail is saved.:" + eMail);
       		});
       		$(".access").click(function() {
 	      		// Retrieve data
@@ -143,16 +143,17 @@
         } else {
             alert("Sorry, your browser does not support local storage.");
           };
-      </script>
+
+            $( "#email-output1" ).html( jQuery.data( div, "email_inline" ).email );
+  </script>
 
     <!--  Below is the transition flow for the frontend. When one element is used, it hides and brings in the next-->
-    <script>
+  <script>
 
         //---Hide n Seek------
     $(document).ready(function(){
       $("#paypal-button-container").hide();
-      $("#rightT-shirt").hide();
-      $("#leftT-shirt").hide();
+      $(".tShirts").hide();
       $("#drop-fill").hide();
       $(".team-banner").hide();
 
@@ -165,42 +166,41 @@
         
       });
 
-      $("#dropdownTrigger").click(function(){
+      $(".gameTime").click(function(){
         event.preventDefault();
-       // $("#drop-fill").hide(5);
-        $("#dropFill").show(500);
-       // $(".team-banner").show(500);
+        $("#dropFill").hide();
+        $(".team-banner").show();
+        $("#left-team").show();
+        $("#right-team").show();
       });
 
-      $("#team-left").click(function(){
+      $("#left-team").click(function(){
         event.preventDefault();
-        $(".team-banner").hide(5);
+        $(".team-banner").hide();
+        $(".tShirts").show();
+        $("#leftT-shirt").hide(0);
         $("#rightT-shirt").show(500);
+        $("#paypal-button-container").show(500);
         
       });
       
-      $("#team-right").click(function(){
+      $("#right-team").click(function(){
         event.preventDefault();
-        $(".team-banner").hide(5);
+        $(".team-banner").hide();
+        $(".tShirts").show();
+        $("#rightT-shirt").hide();
         $("#leftT-shirt").show(500);
+        $("#paypal-button-container").show(500);
         
       });
         
-      $("#leftT-shirt").click(function(){
-        event.preventDefault();
-        $("#leftT-shirt").hide(5);
-        $("#paypal-button-container").show(500);     
-      });
 
-      $("#rightT-shirt").click(function(){
-        event.preventDefault();
-        $("#rightT-shirt").hide(5);
-        $("#paypal-button-container").show(500);     
-      });
     });
     
-    </script>
-<script type="text/Javascript" src="assets/js/script.js"></script>
+  </script>
+
+  <script type="text/Javascript" src="assets/js/script.js"></script>
+
   <footer class="page-footer grey lighten-3">
       <div class="container">
         <div class="row">
