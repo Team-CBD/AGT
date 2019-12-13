@@ -196,6 +196,7 @@ function fillDropDown()
 			dropItems += "<button class='dropdown-item gameTime btn flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + response.list[index].main.temp + ">" + response.list[index].main.temp + "This is some placeholder ass shit, leave it be, thanks, mgmt.</button>";
 			dropItems += "<br>";
 		});
+		
 		$("#dropFill").html(dropItems);
 	});
 }

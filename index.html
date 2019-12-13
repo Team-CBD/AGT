@@ -12,23 +12,31 @@
 
   <title>ANY GIVEN TEAM</title>
 </head>
-<body class="white">
+<body class="bkgimg">
   <header>
     <div class="card-panel grey lighten-4">
-      <h1 class="center">ANY GIVEN TEAM</h1><div class="col-4" id ="email-output1"></div>
+      <h1 class="center">ANY GIVEN TEAM</h1>
+      <form class="container">
+        <div class="row">
+        <h4 class="player1 col left"> Player 1 </h4><h4 class="player2 col right"> Player 2  </h4>
+        </div>
+        <div class="row">
+        <div class="col red-text left" id ="email-output1"placeholder="Your@email.com"></div><div class="col blue-text right" id ="email-output2">some@thing.com</div><p class="center">VS</p>
+        </div>
+      </form>
     </div>
   </header>
  
-    <div class="row">
+    <div class="row main-area large-card">
         <div class="col s12 center">
           <div>
-           <img id="mainlogo" src="assets/img/nfl.gif">
+           <img id="mainlogo" src="assets/img/NFL_logo.svg.webp">
           </div>
-          <div id="email-area" class="input-field inline">
+          <div id="email-area" class="white-text input-field inline">
             <h3>Enter Your E-mail First</h3>
             <form>
-              <input id="email_inline" type="email" class="validate">
-              <button class="red accent-4 btn" id="subMit">submit</button>
+              <input id="email_inline" type="email" class="white z-depth-3 validate">
+              <button class="red pulse z-depth-2 accent-4 btn" id="subMit">submit</button>
             </form>
           </div>
 
@@ -39,7 +47,7 @@
               
             
                 <div class="row">
-                  <form action="" class="col s12 m4 offset-m2 l6 offset-l3">
+                  <form>
                     <div class="row">
                         
                       <div id="drop-fill" class="drop-fill">
@@ -48,42 +56,43 @@
                           <div id="dropFill"></div>
                         </div>     
                     </div>
-                </div>
+                
                   </form>
+                </div>
                   
                 
-                <div id ="email-output2"></div>
+                
 
 
 
               <form class="tShirts">
                 <div id = "leftT-shirt">
-                  <img class="t-shirtpic" href="assets/img/plain_t_shirt.png">
+                  <img class="t-shirtpic" href="assets/img/shirt.jpg">
                 </div>
                 <div id = "rightT-shirt">
-                  <img class="t-shirtpic" href="assets/img/plain_t_shirt.png">
+                  <img class="t-shirtpic" href="assets/img/shirt.jpg">
                 </div>
               </form>
 
 
 
 
-                <div class="team-banner">
-                  <form>
-                      <button id = "left-team" class="leftteam card-panel">
+                <form id="team-banner">
+                  <h2>Pick Your Team</h2>
+                      <button id ="left-team" class="leftteam card-panel">
                         <img id="team-logo">team name 1
                         <div id="team-info1">Info Left</div>
                         <div id="team-info2">Data 2</div>
                         <div id="team-info3">Stat 3</div>
                       </button>    
-                      <button id = "right-team" class="rightteam card-panel">
+                      <button id ="right-team" class="rightteam card-panel">
                         <img id="team-logo">team name 2
                         <div id="team-info1">Info Right</div>
                         <div id="team-info2">Data 2</div>
                         <div id="team-info3">Stat 3</div>
                       </button>
-                    </form>
-                </div>
+                 
+                </form>
             </div>
           </div>
           
@@ -132,7 +141,7 @@
 			      var eMail = $("#email_inline").val();
 		      	// Store data
               localStorage.setItem("email_inline", eMail);
-              //document.html("email_inline", email);
+              document.getElementById("email-output1").innerHTML = localStorage.getItem("email_inline");
 	      		console.log("Your e-mail is saved.:" + eMail);
       		});
       		$(".access").click(function() {
@@ -144,7 +153,7 @@
             alert("Sorry, your browser does not support local storage.");
           };
 
-            $( "#email-output1" ).html( jQuery.data( div, "email_inline" ).email );
+          
   </script>
 
     <!--  Below is the transition flow for the frontend. When one element is used, it hides and brings in the next-->
@@ -155,43 +164,37 @@
       $("#paypal-button-container").hide();
       $(".tShirts").hide();
       $("#drop-fill").hide();
-      $(".team-banner").hide();
+      $("#team-banner").hide();
 
       
       $("#subMit").click(function(){
           event.preventDefault();
-          $("#email-area").hide(5);
-          $("#drop-fill").show(500);
-          //$("#email-output1").append("<p>Player 1: " + localStorage.getItem("email_inline")"</p>");
-        
+          $("#email-area").hide();
+          $("#drop-fill").show(50);
       });
 
       $(".gameTime").click(function(){
         event.preventDefault();
-        $("#dropFill").hide();
-        $(".team-banner").show();
-        $("#left-team").show();
-        $("#right-team").show();
+        $("#drop-fill").hide();
+        $("#team-banner").show(100);
       });
 
       $("#left-team").click(function(){
         event.preventDefault();
-        $(".team-banner").hide();
+        $("#team-banner").hide();
         $(".tShirts").show();
-        $("#leftT-shirt").hide(0);
-        $("#rightT-shirt").show(500);
-        $("#paypal-button-container").show(500);
-        
+        $("#leftT-shirt").hide();
+        $("#rightT-shirt").show(50);
+        $("#paypal-button-container").show(50);
       });
       
       $("#right-team").click(function(){
         event.preventDefault();
-        $(".team-banner").hide();
+        $("#team-banner").hide();
         $(".tShirts").show();
         $("#rightT-shirt").hide();
-        $("#leftT-shirt").show(500);
-        $("#paypal-button-container").show(500);
-        
+        $("#leftT-shirt").show(50);
+        $("#paypal-button-container").show(50);
       });
         
 
