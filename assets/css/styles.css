@@ -5,8 +5,8 @@ button:focus {
 #left-team {
   z-index:99;
     left: 0!important;
-    display: block!important;
-    position: absolute!important;
+    display: block;
+    position: absolute;
     width: 50%!important;
     height: 100%!important;
     top: 180px!important;
@@ -14,8 +14,8 @@ button:focus {
 #right-team {
   z-index:99;
     right: 0!important;
-    display: block!important;
-    position: absolute!important;
+    display: block;
+    position: absolute;
     width: 50%!important;
     height: 100%!important;
     top: 180px!important;
