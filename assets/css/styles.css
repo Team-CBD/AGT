@@ -11,7 +11,7 @@
   background-repeat:no-repeat;
   background-size:contain;
 }
-.team-banner {
+#team-banner {
   z-index:299;
 }
 button:focus {
