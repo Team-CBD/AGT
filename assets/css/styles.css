@@ -9,6 +9,11 @@
   width:120px;
   height:auto;
 }
+.carousel-item {
+  zoom: 1.5;
+  left: -24%!important;
+  top: -26%!important;
+}
 .card-panel {
   margin: .25rem 0 .25rem 0;
   opacity: 95%;
