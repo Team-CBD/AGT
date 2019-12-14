@@ -1,14 +1,12 @@
 <html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-<!-- Design Love displayed here!-->
-  <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  
 <!-- Compiled and minified JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- Compiled and minified CSS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -16,69 +14,66 @@
 </head>
 <body class="bkgimg black">
   <header>
-    <br>
     <div class="center">
-           <img id="mainlogo" src="assets/img/NFL_logo.svg.webp">
-          </div>
+      <img id="mainlogo" src="assets/img/NFL_logo.svg.webp">
+     </div>
   </header>
-    <h1 class="vertical-spacer"></h1>
+ 
     <div class="row main-area large-card">
         <div class="col s12 center">
-          
-          <div id="email-area" class="white-text card input-field inline">
-            <br><h4 class="black-text">Enter Your E-mail</h4>
+
+          <div id="email-area" class="white-text input-field inline">
+            <h3>Enter Your E-mail First</h3>
             <form>
               <input id="email_inline" type="email" class="white z-depth-3 validate">
               <button class="red pulse z-depth-2 accent-4 btn" id="subMit">Submit</button>
             </form>
-            <h4 class="red-text">Your Buddy Scans<h4 class="indigo-text">The QR Code</h4></h4>
           </div>
-     
-       
-      <div id="qr-banner" class="center">
-        <img id="agtlogo" src="assets/img/AGTqr.png"><br>
-      </div>
-    
-    </div>
 
           <div class="container">
+              <br><br>
+
+              <br>
+              
+            
+              <div class="container">
                 <div class="row">
                   <form>  
                       <div class="drop-fill">
                       <h1 id="pick-text"class="white-text center flow-text">Pick The Game</h1>
-                          <!-- <a class='dropdown-trigger' id="dropdownTrigger" data-target='dropdown1'></a> -->
+                          <!--<a class='dropdown-trigger' id="dropdownTrigger" data-target='dropdown1'></a> -->
                            <div class="fixed-columns" style="width: 100%;">
                           <div id="dropFill" class="carousel">
                             
+                          </div>
+                            
 
-                              </div>
+                        </div>
                                       
                                     
-
-                                    </div>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>     
-                    </div>
-                
-                  </form>
-               
-   
-
-              <form class="show tShirts">
-                <div class="card" id = "leftT-shirt">
-                  <div class="t-shirtlogo center"><img src="assets/img/eagles.gif"></div>
+                    </form>
                 </div>
-                <div class="card" id = "rightT-shirt">
-                  <div class="t-shirtlogo center"><img src="assets/img/redskins.gif"></div>
+            </div>
+          </div>
+                  
+                
+                
+
+
+
+              <form class="tShirts">
+                <div id = "leftT-shirt">
+                  <img class="t-shirtpic" src="assets/img/plain-t-shirt.png">
+                </div>
+                <div id = "rightT-shirt">
+                  <img class="t-shirtpic" src="assets/img/plain-t-shirt.png">
                 </div>
               </form>
 
-              
 
-                <!--<form id="team-banner">
+
+
+                <form id="team-banner">
                   <h2>Pick Your Team</h2>
                       <button id ="left-team" class="leftteam card-panel">
                         <div id="team-logo-left">team name 1
@@ -93,7 +88,7 @@
                         <div id="team-info3-right">Stat 3</div>
                       </button>
                  
-                </form>-->
+                </form>
             </div>
           </div>
           
@@ -106,25 +101,31 @@
         <h4>Paid for only if your team loses!</h4>
     </div>
     <script src="https://www.paypal.com/sdk/js?client-id=AYkcxhdiXSJNPcAT4-BZbgxDPY0Xamj23EiUVIGqaxt6W3yizs9OOAoB1g0RpdZ4CasEyWT1sFRLlP1p&currency=USD" data-sdk-integration-source="button-factory"></script>
+    
 
-  
   <script type="text/Javascript" src="assets/js/script.js"></script>
 
   <footer class="page-footer grey lighten-3">
-    <form id="player-banner" class="center col s12 card">
-      <div class="row white">
-      <h4 class="player1 col s6 black-text center left">Player 1 </h4><h4 class="player2 col s6 black-text center right"> Player 2</h4>
+    <div class="card-panel grey lighten-4">
+      
+      <form class="container">
+        <div class="row">
+        <h4 class="player1 col left"> Player 1 </h4><h4 class="player2 col right"> Player 2  </h4>
+        </div>
+        <div class="row">
+        <div class="col red-text left" id ="email-output1" >your@email.here</div><div class="col blue-text right" id ="email-output2">some@thing.com</div><p class="center">VS</p>
+        </div>
+      </form>
+    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text"></h5>
+            <p class="grey-text center text-lighten-4"><img id="footerlogo"src="assets/css/agtlogoonly.png"></p>
+          </div>
+        </div>
       </div>
-      <div class="row white">
-        <br>
-      <div class="col s6 center red-text left" id ="email-output1" >your@email.here</div><div class="col s6 center blue-text right" id ="email-output2">some@thing.com</div>
-      </div>
-    </form>
 
-      <div class ="footer-logo center">
-       <img id="footerlogo" class="col s6" src="assets/img/agtlogoonly.png">
-
-      </div>
     </footer>
 
 

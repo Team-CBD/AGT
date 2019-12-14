@@ -9,11 +9,11 @@
   width:120px;
   height:auto;
 }
-.carousel-item {
+/*.carousel-item {
   zoom: 1.5;
   left: -24%!important;
   top: -26%!important;
-}
+}*/
 .card-panel {
   margin: .25rem 0 .25rem 0;
   opacity: 95%;
@@ -21,7 +21,7 @@
 .card-bkg {
   opacity:.9!important;
   background-color:white;
-  border-radius:px;
+  border-radius:7px;
 }
 .row {
   margin-bottom:1px!important;
@@ -81,7 +81,7 @@ button:focus {
     position: absolute;
     width: 50%!important;
     height: 100%!important;
-    top: 180px!important;
+    top: 250px!important;
 }
 #right-team {
   z-index:399;
@@ -90,7 +90,7 @@ button:focus {
     position: absolute;
     width: 50%!important;
     height: 100%!important;
-    top: 180px!important;
+    top: 250px!important;
 }
 
 #nfl-logo {
@@ -139,4 +139,18 @@ button:focus {
 }
 #email-area {
   opacity:.95;
+}
+#leftT-shirt {
+  background-image:url("assets/img/plain_t_shirt.png");
+  background-position:center;
+  background-color:none!important;
+  background-repeat:no-repeat;
+  background-size:auto;
+}
+#rightT-shirt {
+  background-image:url("assets/img/plain_t_shirt.png");
+  background-position:center;
+  background-color:none!important;
+  background-repeat:no-repeat;
+  background-size:auto;
 }
