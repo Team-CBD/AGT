@@ -6,7 +6,7 @@ var year = date.getFullYear();
 var today = "2019-12-08"; //year + "-" + month + "-" + day;
 console.log(today);
 var gameId = "";
-var rundownAPIkey = "e03946ac96msh61268ccf1e1b537p1a251djsne8daa6a8b927"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
+var rundownAPIkey = "242f7e4d72msh695a83f6c5ba0dap10c3f3jsn53c657fbf972"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
 
 var theRundownData = [];
 
@@ -265,7 +265,7 @@ $(document).ready(function(){
 	});
 
 	$("#paypal-button-container").hide();
-	$("#t-Shirts").hide();
+	//$("#t-Shirts").hide();
 	$("#leftT-shirt").hide();
 	$("#rightT-shirt").hide();
 	$("#drop-Fill").hide();
@@ -283,9 +283,9 @@ $(document).ready(function(){
 	{
 		event.preventDefault();
 		$("#team-banner").hide();
-		$("#t-Shirts").show(5);
-		$("#rightT-shirt").show(10);
-		$("#paypal-button-container").show(15);
+		//$("#t-Shirts").show(5);
+		$("#rightT-shirt").show();
+		$("#paypal-button-container").show();
 		console.log("left-team clicked");
 	});
 	
@@ -293,9 +293,9 @@ $(document).ready(function(){
 	{
 	event.preventDefault();
 	$("#team-banner").hide();
-	$("#t-Shirts").show(5);
-	$("#leftT-shirt").show(10);
-	$("#paypal-button-container").show(15);
+	//$("#t-Shirts").show(5);
+	$("#leftT-shirt").show();
+	$("#paypal-button-container").show();
 	console.log("right-team clicked");
 	});
 	
