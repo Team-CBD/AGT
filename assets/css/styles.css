@@ -18,6 +18,11 @@
   margin: .25rem 0 .25rem 0;
   opacity: 95%;
 }
+.card-bkg {
+  opacity:.9!important;
+  background-color:white;
+  border-radius:px;
+}
 .row {
   margin-bottom:1px!important;
 }
