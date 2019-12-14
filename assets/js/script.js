@@ -199,7 +199,7 @@ var dropItems = "";
 		//dropItems += "<br>";
 		//dropItems += "<br><a class='dropdown-item btn carousel-item gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
 		//dropItems += "<br>";
-		dropItems += "<div onclick='gameIdGet(event)' class='carousel-item' id=" + theRundownData[0].events[index].event_id + ">";
+		dropItems += "<div class='gameTime dropdown-item carousel-item' id=" + theRundownData[0].events[index].event_id + ">";
 		dropItems += "<div class='card white card-bkg row'>";
 		  dropItems += "<div>";
 			dropItems += "<div>";
@@ -212,7 +212,7 @@ var dropItems = "";
 				  
 				dropItems += "<div class='card col s6'>";
 				  dropItems += "<div class='logo-small logo-nfl' id='logo-nfl-phi'>";
-					dropItems += "<div class='team-name'>TEST" + val.teams[0].name + ";"
+					dropItems += "<div class='team-name'>TEST" + val.teams[0].name;
 					 dropItems += "<span class='center'>PHI </span>";
 					  dropItems += "<img class='center team-mascot' src='assets/img/eagles.gif'>";
 					  dropItems += "</div>";
@@ -224,7 +224,7 @@ var dropItems = "";
 
 					  dropItems += "<div class='card col s6'>";
 						dropItems += "<div class='logo-small logo-nfl' id='logo-nfl-wsh'><span>";
-						  dropItems += "<div class='center team-name'>" + val.teams[1].name + ";"
+						  dropItems += "<div class='center team-name'>" + val.teams[1].name;
 							dropItems += "<span class='center'>WSH </spanclass='center'>";
 							  dropItems += "<span class='center team-mascot'><img class='team-mascot' src='assets/img/redskins.gif'></span>";
 							  dropItems += "</div>";
