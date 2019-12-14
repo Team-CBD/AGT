@@ -9,6 +9,10 @@
   width:120px;
   height:auto;
 }
+#qr-img {
+  width:150px;
+  height:200px;
+}
 /*.carousel-item {
   zoom: 1.5;
   left: -24%!important;
@@ -141,14 +145,14 @@ button:focus {
   opacity:.95;
 }
 #leftT-shirt {
-  background-image:url("assets/img/plain_t_shirt.png");
+  background-image:url("assets/img/plain-t-shirt.png");
   background-position:center;
   background-color:none!important;
   background-repeat:no-repeat;
   background-size:auto;
 }
 #rightT-shirt {
-  background-image:url("assets/img/plain_t_shirt.png");
+  background-image:url("assets/img/plain-t-shirt.png");
   background-position:center;
   background-color:none!important;
   background-repeat:no-repeat;
