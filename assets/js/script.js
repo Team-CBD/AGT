@@ -5,7 +5,6 @@ var month = String(date.getMonth() + 1).padStart(2, '0');
 var year = date.getFullYear();
 var today = "2019-12-15"; //year + "-" + month + "-" + day;
 console.log(today);
-var city = "Baltimore";
 var gameId = "";
 var rundownAPIkey = "afbd06620amshd8f0c0962c6e84bp1e8773jsn7e85a0219911"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
 
@@ -138,15 +137,13 @@ function showTeams(index)
 	{
 		document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Home");
 		document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Away");
-		//getLatLon(theRundownData[0].events[index].teams_normalized[0].name, index);
-		getLatLon(city, index);
+		getLatLon(theRundownData[0].events[index].teams_normalized[0].name, index);
 	}
 	else
 	{
 		document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Away");
 		document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Home");
-		//getLatLon(theRundownData[0].events[index].teams_normalized[1].name, index);
-		getLatLon(city, index);
+		getLatLon(theRundownData[0].events[index].teams_normalized[1].name, index);
 	}
 	
 	
@@ -199,48 +196,9 @@ var dropItems = "";
 
 	$.each(theRundownData[0].events, function(index,val)
 	{
-		//dropItems += "<br>";
-		//dropItems += "<br><a class='dropdown-item btn carousel-item gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
-		//dropItems += "<br>";
-		dropItems += "<div onclick='gameIdGet(event)' class='carousel-item' id=" + theRundownData[0].events[index].event_id + ">";
-		dropItems += "<div class='card white card-bkg row'>";
-		  dropItems += "<div>";
-			dropItems += "<div>";
-			  dropItems += "<h4 class='black-text center card-title'><time datetime='2019-12-15T10:00:00-08:00'>12/15</time></h4>";
-			  dropItems += "</div>";
-			  dropItems += "<div>";
-				dropItems += "<h5 class='center grey-text'><time datetime='2019-12-15T10:00:00-08:00'>10:00am</time></h5>";
-				dropItems += "</div>";
-				dropItems += "</div>";
-				  
-				dropItems += "<div class='card col s6'>";
-				  dropItems += "<div class='logo-small logo-nfl' id='logo-nfl-phi'>";
-					dropItems += "<div class='team-name'>TEST" + val.teams[0].name + ";"
-					 dropItems += "<span class='center'>PHI </span>";
-					  dropItems += "<img class='center team-mascot' src='assets/img/eagles.gif'>";
-					  dropItems += "</div>";
-					  dropItems += "<div class='center team-score'></div>";
-					  dropItems += "<div class='center team-record'>(6-7)</div>";
-					  dropItems += "</span>";
-					  dropItems += "</div>";
-					  dropItems += "</div>";
-
-					  dropItems += "<div class='card col s6'>";
-						dropItems += "<div class='logo-small logo-nfl' id='logo-nfl-wsh'><span>";
-						  dropItems += "<div class='center team-name'>" + val.teams[1].name + ";"
-							dropItems += "<span class='center'>WSH </spanclass='center'>";
-							  dropItems += "<span class='center team-mascot'><img class='team-mascot' src='assets/img/redskins.gif'></span>";
-							  dropItems += "</div>";
-							  dropItems += "<div class='center team-score'></div>";
-							  dropItems += "<div class='center team-record'>(3-10)";
-								dropItems += "</div>";
-								dropItems += "</span>";
-								dropItems += "</div>";
-					  
-								dropItems += "</div>";
-								dropItems += "</div>";
-								dropItems += "</div>";
-
+		dropItems += "<br>";
+		dropItems += "<br><a class='dropdown-item btn gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
+		dropItems += "<br>";
 	});
 	$("#dropFill").html(dropItems);
 	
@@ -289,8 +247,6 @@ $(document).ready(function(){
 			$("#qr-banner").hide();
 			$("#email-area").hide();
 			$(".drop-fill").show()
-		    // carousel activation
-			$('.carousel').carousel();
 			fillDropDown();
 	});
 
@@ -331,5 +287,4 @@ $(document).ready(function(){
 	
 
 });
-
- 
+    
