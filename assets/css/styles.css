@@ -144,14 +144,14 @@ button:focus {
 #email-area {
   opacity:.95;
 }
-#leftT-shirt {
+.leftT-shirt {
   background-image:url("assets/img/plain-t-shirt.png");
   background-position:center;
   background-color:none!important;
   background-repeat:no-repeat;
   background-size:auto;
 }
-#rightT-shirt {
+.rightT-shirt {
   background-image:url("assets/img/plain-t-shirt.png");
   background-position:center;
   background-color:none!important;

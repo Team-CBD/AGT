@@ -128,9 +128,12 @@ function showTeams(index)
 	$("<img>").attr("src", imgSrc + logoLeft + ".gif").attr("alt", logoLeft + "Logo").prependTo(logoLeftDiv);
 	$("<img>").attr("src", imgSrc + logoRight + ".gif").attr("alt", logoRight + "Logo").prependTo(logoRightDiv);
 
-	document.body.innerHTML = document.body.innerHTML.replace("team name 1", theRundownData[0].events[index].teams[0].name);
-	document.body.innerHTML = document.body.innerHTML.replace("team name 2", theRundownData[0].events[index].teams[1].name);
-	
+	document.body.innerHTML = document.body.innerHTML.replace("team name 1", theRundownData[0].events[index].teams_normalized[0].name);
+    document.body.innerHTML = document.body.innerHTML.replace("team name 2", theRundownData[0].events[index].teams_normalized[1].name);
+    document.body.innerHTML = document.body.innerHTML.replace("Info Left", theRundownData[0].events[index].teams_normalized[0].mascot);
+    document.body.innerHTML = document.body.innerHTML.replace("Info Right", theRundownData[0].events[index].teams_normalized[1].mascot);
+    document.body.innerHTML = document.body.innerHTML.replace("Stat 1", theRundownData[0].events[index].teams_normalized[0].record);
+    document.body.innerHTML = document.body.innerHTML.replace("Stat 2", theRundownData[0].events[index].teams_normalized[1].record);
 	console.log("Are the " + theRundownData[0].events[index].teams[0].name + " at home? - " + theRundownData[0].events[index].teams[0].is_home);
 	
 	if(theRundownData[0].events[index].teams[0].is_home === true)
@@ -263,6 +266,8 @@ $(document).ready(function(){
 
 	$("#paypal-button-container").hide();
 	$("#t-Shirts").hide();
+	$("#leftT-shirt").hide();
+	$("#rightT-shirt").hide();
 	$("#drop-Fill").hide();
 	$("#team-banner").hide();
 
@@ -276,23 +281,21 @@ $(document).ready(function(){
 
 	$("#left-team").click(function(e)
 	{
-		//event.preventDefault();
+		event.preventDefault();
 		$("#team-banner").hide();
-		$("#t-Shirts").show();
-		$("#leftT-shirt").hide();
-		$("#rightT-shirt").show();
-		$("#paypal-button-container").show();
+		$("#t-Shirts").show(5);
+		$("#rightT-shirt").show(10);
+		$("#paypal-button-container").show(15);
 		console.log("left-team clicked");
 	});
 	
 	$("#right-team").click(function(e)
 	{
-	//event.preventDefault();
+	event.preventDefault();
 	$("#team-banner").hide();
-	$("#t-Shirts").show();
-	$("#rightT-shirt").hide();
-	$("#leftT-shirt").show();
-	$("#paypal-button-container").show();
+	$("#t-Shirts").show(5);
+	$("#leftT-shirt").show(10);
+	$("#paypal-button-container").show(15);
 	console.log("right-team clicked");
 	});
 	
