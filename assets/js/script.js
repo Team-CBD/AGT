@@ -196,9 +196,47 @@ var dropItems = "";
 
 	$.each(theRundownData[0].events, function(index,val)
 	{
-		dropItems += "<br>";
-		dropItems += "<br><a class='dropdown-item btn carousel-item gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
-		dropItems += "<br>";
+		//dropItems += "<br>";
+		//dropItems += "<br><a class='dropdown-item btn carousel-item gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
+		//dropItems += "<br>";
+		dropItems += "<div class="carousel-item" >";
+		dropItems += "<div class="card card-bkg row">";
+		  dropItems += "<div>";
+			dropItems += "<div>";
+			  dropItems += "<h4 class="black-text center card-title"><time datetime="2019-12-15T10:00:00-08:00">12/15</time></h4>";
+			  dropItems += "</div>";
+			  dropItems += "<div>";
+				dropItems += "<h5 class="center grey-text"><time datetime="2019-12-15T10:00:00-08:00">10:00am</time></h5>";
+				dropItems += "</div>";
+				dropItems += "</div>";
+				  
+				dropItems += "<button class="card col s6">";
+				  dropItems += "<div class="logo-small logo-nfl" id="logo-nfl-phi">";
+					dropItems += "<div class="team-name">";
+					  dropItems += "<span class="center"><!-- react-text: 372 -->PHI <!-- /react-text --><!-- react-text: 373 --><!-- /react-text --></span>";
+					  dropItems += "<img class="center team-mascot" src="assets/img/eagles.gif">";
+					  dropItems += "</div>";
+					  dropItems += "<div class="center team-score"></div>";
+					  dropItems += "<div class="center team-record"><!-- react-text: 377 -->(6-7)<!-- /react-text --></div>";
+					  dropItems += "</span>";
+					  dropItems += "</div>";
+					  dropItems += "</button>";
+
+					  dropItems += "<button class="card col s6">";
+						dropItems += "<div class="logo-small logo-nfl" id="logo-nfl-wsh"><span>";
+						  dropItems += "<div class="center team-name">";
+							dropItems += "<span class="center"><!-- react-text: 383 -->WSH <!-- /react-text --><!-- react-text: 384 --><!-- /react-text --></spanclass="center">";
+							  dropItems += "<span class="center team-mascot"><img class="team-mascot" src="assets/img/redskins.gif"></span>";
+							  dropItems += "</div>";
+							  dropItems += "<div class="center team-score"></div>";
+							  dropItems += "<div class="center team-record"><!-- react-text: 388 -->(3-10)<!-- /react-text -->";
+								dropItems += "</div>";
+								dropItems += "</span>";
+								dropItems += "</div>";
+					  
+								dropItems += "</button>";
+								dropItems += "</div>";
+								dropItems += "</div>";
 	});
 	$("#dropFill").html(dropItems);
 	
