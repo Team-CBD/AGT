@@ -6,8 +6,9 @@ var year = date.getFullYear();
 var today = "2019-12-08"; //year + "-" + month + "-" + day;
 console.log(today);
 var gameId = "";
-var rundownAPIkey = "242f7e4d72msh695a83f6c5ba0dap10c3f3jsn53c657fbf972"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
-
+var rundownAPIkey = "909081d741msh52d9769dc276d42p1cd84djsnb7f6bc5dc677"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
+var leftButton = document.querySelector("#left-team");
+var rightButton = document.querySelector("#right-team");
 var theRundownData = [];
 
 var settings = {
@@ -45,6 +46,19 @@ function gameIdGet(event)
 	
 }
 //TODO: function that does all the logos and pastes the team scores up
+
+leftButton.addEventListener("click", function(event)
+{
+    event.preventDefault();
+    shirt += "<img src='assets/img/plain-t-shirt-chiefs.gif'>";
+    $("#t-Shirts").html(shirt);
+})
+rightButton.addEventListener("click", function(event)
+{
+    event.preventDefault();
+    shirt += "<img src='assets/img/plain-t-shirt-pats.gif'>";
+    $("#t-Shirts").html(shirt);
+})
 
 function getScores(gameId)
 {
@@ -265,9 +279,9 @@ $(document).ready(function(){
 	});
 
 	$("#paypal-button-container").hide();
-	//$("#t-Shirts").hide();
-	$("#leftT-shirt").hide();
-	$("#rightT-shirt").hide();
+	$("#t-Shirts").hide();
+	//$("#leftT-shirt").hide();
+	//$("#rightT-shirt").hide();
 	$("#drop-Fill").hide();
 	$("#team-banner").hide();
 
@@ -279,24 +293,24 @@ $(document).ready(function(){
 	// 	console.log("gameTime clicked");
 	// });
 
-	$("#left-team").click(function(e)
+	$("#left-team").click(function()
 	{
 		event.preventDefault();
 		$("#team-banner").hide();
 		//$("#t-Shirts").show(5);
-		$("#rightT-shirt").show();
+		//$("#rightT-shirt").show();
 		$("#paypal-button-container").show();
-		console.log("left-team clicked");
+		//console.log("left-team clicked");
 	});
 	
 	$("#right-team").click(function(e)
 	{
-	event.preventDefault();
-	$("#team-banner").hide();
-	//$("#t-Shirts").show(5);
-	$("#leftT-shirt").show();
-	$("#paypal-button-container").show();
-	console.log("right-team clicked");
+		event.preventDefault();
+		$("#team-banner").hide();
+		//$("#t-Shirts").show(5);
+		//$("#leftT-shirt").show();
+		$("#paypal-button-container").show();
+		//console.log("right-team clicked");
 	});
 	
 

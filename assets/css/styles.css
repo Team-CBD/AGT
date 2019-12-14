@@ -1,5 +1,6 @@
 #mainLogo {
   width:150px;
+  padding-top:30px;
 }
 #agtlogo {
   width:180px;
@@ -42,12 +43,26 @@ footer {
   bottom: 0;
   width:100%;
   padding-top:0;
+
 }
 .team-mascot {
   width:64px;
   height:auto;
 }
-
+#leftT-shirt {
+  background-image:url("assets/img/plain-t-shirt.png");
+  background-position:center;
+  background-color:none!important;
+  background-repeat:no-repeat;
+  background-size:auto;
+}
+#rightT-shirt {
+  background-image:url("assets/img/plain-t-shirt.png");
+  background-position:center;
+  background-color:none!important;
+  background-repeat:no-repeat;
+  background-size:auto;
+}
 .bkgimg {
   background-image:url("BKGGIF.gif")!important;
   background-position:center;
@@ -123,11 +138,25 @@ button:focus {
 .btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
   background-color: #b50a13;
 }
-.t-Shirts {
+.tShirt {
   width:100%;
   height:100%;
   z-index:149;
 }
 #email-area {
   opacity:.95;
+}
+.leftT-shirt {
+  background-image:url("assets/img/plain-t-shirt.png");
+  background-position:center;
+  background-color:none!important;
+  background-repeat:no-repeat;
+  background-size:auto;
+}
+.rightT-shirt {
+  background-image:url("assets/img/plain-t-shirt.png");
+  background-position:center;
+  background-color:none!important;
+  background-repeat:no-repeat;
+  background-size:auto;
 }
