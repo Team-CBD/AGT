@@ -6,7 +6,7 @@ var year = date.getFullYear();
 var today = "2019-12-08"; //year + "-" + month + "-" + day;
 console.log(today);
 var gameId = "";
-var rundownAPIkey = "672c39c390msh75f882bcb63a90bp170fe7jsn03aa28f01c0b"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
+var rundownAPIkey = "e03946ac96msh61268ccf1e1b537p1a251djsne8daa6a8b927"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
 
 var theRundownData = [];
 
@@ -197,7 +197,7 @@ var dropItems = "";
 	$.each(theRundownData[0].events, function(index,val)
 	{
 		dropItems += "<br>";
-		dropItems += "<br><a class='dropdown-item btn gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "<br></div>";
+		dropItems += "<br><a class='dropdown-item btn center gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div><br>";
 		dropItems += "<br>";
 	});
 	$("#dropFill").html(dropItems);
@@ -246,13 +246,13 @@ $(document).ready(function(){
 			console.log("Your e-mail is saved:" + eMail);
 			$("#qr-banner").hide();
 			$("#email-area").hide();
-			$(".drop-fill").show()
+			$(".drop-Fill").show()
 			fillDropDown();
 	});
 
 	$("#paypal-button-container").hide();
-	$(".tShirts").hide();
-	$(".drop-fill").hide();
+	$("#t-Shirts").hide();
+	$("#drop-Fill").hide();
 	$("#team-banner").hide();
 
 	// $(".gameTime").click(function(e)
@@ -267,7 +267,7 @@ $(document).ready(function(){
 	{
 		//event.preventDefault();
 		$("#team-banner").hide();
-		$(".tShirts").show();
+		$("#t-Shirts").show();
 		$("#leftT-shirt").hide();
 		$("#rightT-shirt").show();
 		$("#paypal-button-container").show();
@@ -278,7 +278,7 @@ $(document).ready(function(){
 	{
 	//event.preventDefault();
 	$("#team-banner").hide();
-	$(".tShirts").show();
+	$("#t-Shirts").show();
 	$("#rightT-shirt").hide();
 	$("#leftT-shirt").show();
 	$("#paypal-button-container").show();

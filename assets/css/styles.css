@@ -48,14 +48,14 @@ footer {
   height:auto;
 }
 #leftT-shirt {
-  background-image:url("assets/img/plain_t_shirt.png");
+  background-image:url("assets/img/plain-t-shirt.png");
   background-position:center;
   background-color:none!important;
   background-repeat:no-repeat;
   background-size:auto;
 }
 #rightT-shirt {
-  background-image:url("assets/img/plain_t_shirt.png");
+  background-image:url("assets/img/plain-t-shirt.png");
   background-position:center;
   background-color:none!important;
   background-repeat:no-repeat;
