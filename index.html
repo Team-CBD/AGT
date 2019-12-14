@@ -15,12 +15,12 @@
 </head>
 <body class="bkgimg black">
   <header>
-    <h1 class="vertical-spacer"></h1>
+    <br>
     <div class="center">
            <img id="mainlogo" src="assets/img/NFL_logo.svg.webp">
           </div>
   </header>
-    <h1 class="vertical-spacer"><br></h1>
+    <h1 class="vertical-spacer"></h1>
     <div class="row main-area large-card">
         <div class="col s12 center">
           
@@ -32,27 +32,17 @@
             </form>
             <h4 class="red-text">And Have Your Buddy<br><h4 class="indigo-text"> Scan The QR Code Below</h4></h4>
           </div>
-    <h1 class="vertical-spacer"></h1> 
+     
        
-      <div class="center">
+      <div id="qr-banner" class="center">
         <img id="agtlogo" src="assets/img/AGTqr.png"><br>
       </div>
-    <h1 class="vertical-spacer"></h1>
-      <form class="center col s12 card">
-        <div class="row white">
-        <h4 class="player1 col s6 center left"> Player 1 </h4><h4 class="player2 col s6 center right"> Player 2  </h4>
-        </div>
-        <div class="row white">
-          <br>
-        <div class="col s6 center red-text left" id ="email-output1" >your@email.here</div><div class="col s6 center blue-text right" id ="email-output2">some@thing.com</div><p class="center">VS</p>
-        </div>
-      </form>
+    
+
     </div>
 
           <div class="container">
-              <br><br>
-
-              <br>
+             
               
             
                 <div class="row">
@@ -63,7 +53,7 @@
                       <h3 class="white-text flow-text">Pick The Game</h3>
                           <!-- <a class='dropdown-trigger' id="dropdownTrigger" data-target='dropdown1'></a> -->
                           <div id="dropFill">
-                            <div class="card-panel">
+                            <div class="card">
                               <div class="row">
                                 <div class="col-4">
                                   <div class="fixed-columns" style="min-width: 303px; width: 303px;">
@@ -169,17 +159,19 @@
   <script type="text/Javascript" src="assets/js/script.js"></script>
 
   <footer class="page-footer grey lighten-3">
-      <div class="container">
-        <div class="row center">
-         
-            <img id="footerlogo" class="col-6" src="assets/img/agtlogoonly.png">
-          
-        </div>
+    <form id="player-banner" class="center col s12 card">
+      <div class="row white">
+      <h4 class="player1 col s6 black-text center left">Player 1 </h4><h4 class="player2 col s6 black-text center right"> Player 2</h4>
       </div>
-      <div class="footer-copyright center">
-        <div class="container">
-          <p class="grey-text col-6 center text-lighten-4">Coding Bootcamp | UC Riverside Extension</p>© 2019 Team-CBD
-        </div>
+      <div class="row white">
+        <br>
+      <div class="col s6 center red-text left" id ="email-output1" >your@email.here</div><div class="col s6 center blue-text right" id ="email-output2">some@thing.com</div><p class="center">VS</p>
+      </div>
+    </form>
+
+      <div class ="footer-logo center">
+       <img id="footerlogo" class="col s6" src="assets/img/agtlogoonly.png"><p class="col s6">© 2019 Team-CBD</p>
+
       </div>
     </footer>
 

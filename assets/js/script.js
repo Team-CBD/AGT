@@ -244,7 +244,7 @@ $(document).ready(function(){
 			localStorage.setItem("email_inline", eMail);
 			document.getElementById("email-output1").innerHTML = localStorage.getItem("email_inline");
 			console.log("Your e-mail is saved:" + eMail);
-			
+			$("#qr-banner").hide();
 			$("#email-area").hide();
 			$(".drop-fill").show()
 			fillDropDown();
