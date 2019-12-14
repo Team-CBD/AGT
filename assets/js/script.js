@@ -3,7 +3,7 @@ var date = new Date(); //full year month date
 var day = String(date.getDate()).padStart(2, '0');
 var month = String(date.getMonth() + 1).padStart(2, '0');
 var year = date.getFullYear();
-var today = year + "-" + month + "-" + day;
+var today = "2019-12-15"; //year + "-" + month + "-" + day;
 console.log(today);
 var gameId = "";
 var rundownAPIkey = "afbd06620amshd8f0c0962c6e84bp1e8773jsn7e85a0219911"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
