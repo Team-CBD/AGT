@@ -197,7 +197,7 @@ var dropItems = "";
 	$.each(theRundownData[0].events, function(index,val)
 	{
 		dropItems += "<br>";
-		dropItems += "<br><a class='dropdown-item btn gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
+		dropItems += "<br><a class='dropdown-item btn carousel-itemgameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div>";
 		dropItems += "<br>";
 	});
 	$("#dropFill").html(dropItems);

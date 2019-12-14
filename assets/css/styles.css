@@ -19,7 +19,9 @@
 .card.row {
   padding:1%;
 }
-
+#pick-text{
+  font-size:50;
+}
 footer {
   /*position: sticky;*/
   left: 0;
