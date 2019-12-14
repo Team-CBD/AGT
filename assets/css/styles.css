@@ -13,12 +13,19 @@
   margin: .25rem 0 .25rem 0;
   opacity: 95%;
 }
+.card.row {
+  padding:1%;
+}
 footer {
-  position: sticky;
+  /*position: sticky;*/
   left: 0;
   bottom: 0;
   width:100%;
   padding-top:0;
+}
+.team-mascot {
+  width:64px;
+  height:auto;
 }
 #leftT-shirt {
   background-image:url("assets/img/plain_t_shirt.png");

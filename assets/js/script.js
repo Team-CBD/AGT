@@ -247,6 +247,8 @@ $(document).ready(function(){
 			$("#qr-banner").hide();
 			$("#email-area").hide();
 			$(".drop-fill").show()
+		    // carousel activation
+			$('.carousel').carousel();
 			fillDropDown();
 	});
 
@@ -287,4 +289,5 @@ $(document).ready(function(){
 	
 
 });
-    
+
+ 
