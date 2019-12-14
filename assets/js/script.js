@@ -5,6 +5,7 @@ var month = String(date.getMonth() + 1).padStart(2, '0');
 var year = date.getFullYear();
 var today = "2019-12-15"; //year + "-" + month + "-" + day;
 console.log(today);
+var city = "Baltimore";
 var gameId = "";
 var rundownAPIkey = "afbd06620amshd8f0c0962c6e84bp1e8773jsn7e85a0219911"; //<=#4 //"a0f94d59d3msh5288a8373770889p1430d2jsn2fb820f83154"; // <= deri's 3rd key
 
@@ -137,13 +138,15 @@ function showTeams(index)
 	{
 		document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Home");
 		document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Away");
-		getLatLon(theRundownData[0].events[index].teams_normalized[0].name, index);
+		//getLatLon(theRundownData[0].events[index].teams_normalized[0].name, index);
+		getLatLon(city, index);
 	}
 	else
 	{
 		document.body.innerHTML = document.body.innerHTML.replace("Info Left", "Away");
 		document.body.innerHTML = document.body.innerHTML.replace("Info Right", "Home");
-		getLatLon(theRundownData[0].events[index].teams_normalized[1].name, index);
+		//getLatLon(theRundownData[0].events[index].teams_normalized[1].name, index);
+		getLatLon(city, index);
 	}
 	
 	
