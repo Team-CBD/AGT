@@ -184,7 +184,18 @@ function showWeather(latitude, longitude, index)
 			method: "GET",
 		}).then(function(response)
 		{
+			var weather = "";
 			var temperature = response.currently.apparentTemperature;
+			if(theRundownData[0].events[index].teams.is_home === true)
+			{
+				weather += "<div>" + "Temperature: " + temperature + "&degF" + "</div>";
+				$("#temp1").html(weather);
+			}
+			else
+			{
+				weather += "<div>" + "Temperature: " + temperature + "&degF" + "</div>";
+				$("#temp2").html(weather);
+			}
 			console.log("temp: " + temperature); //TODO: display current weather on page
 		});
 }
