@@ -1,4 +1,4 @@
-var dropdown = document.querySelector("#dropFill");
+var dropdown = document.querySelector("#dropFillspot");
 var date = new Date(); //full year month date
 var day = String(date.getDate()).padStart(2, '0');
 var month = String(date.getMonth() + 1).padStart(2, '0');
@@ -47,7 +47,7 @@ function gameIdGet(event)
 }
 //TODO: function that does all the logos and pastes the team scores up
 
-leftButton.addEventListener("click", function(event)
+/*leftButton.addEventListener("click", function(event)
 {
     event.preventDefault();
     shirt += "<img src='assets/img/plain-t-shirt-chiefs.gif'>";
@@ -58,7 +58,7 @@ rightButton.addEventListener("click", function(event)
     event.preventDefault();
     shirt += "<img src='assets/img/plain-t-shirt-pats.gif'>";
     $("#t-Shirts").html(shirt);
-})
+})*/
 
 function getScores(gameId)
 {
@@ -123,9 +123,11 @@ function getScores(gameId)
 	});
 }
 
+
+
 function showTeams(index)
 {
-	$("#dropFill").hide();
+	$("#drop-Fill").hide();
 	$("#team-banner").show();
 	console.log("gameTime clicked");
 
@@ -225,10 +227,13 @@ var dropItems = "";
 	$.each(theRundownData[0].events, function(index,val)
 	{
 		dropItems += "<br>";
-		dropItems += "<br><a class='dropdown-item btn center gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div><br>";
+		dropItems += "<br>";
+		dropItems += "<br><a class='carousel-item card btn center gameTime flow-text grey lighten-4 z-depth-1 black-text' onclick='gameIdGet(event)' id=" + theRundownData[0].events[index].event_id + ">" + val.teams[0].name + " vs. " + val.teams[1].name + "</div><br>";
+		dropItems += "<br>";
+		dropItems += "<h3 class='center'<                     SWIPE                     ></h3>";
 		dropItems += "<br>";
 	});
-	$("#dropFill").html(dropItems);
+	$("#dropFillspot").html(dropItems).carousel();
 	
 }
 
@@ -280,8 +285,6 @@ $(document).ready(function(){
 
 	$("#paypal-button-container").hide();
 	$("#t-Shirts").hide();
-	//$("#leftT-shirt").hide();
-	//$("#rightT-shirt").hide();
 	$("#drop-Fill").hide();
 	$("#team-banner").hide();
 
@@ -297,18 +300,18 @@ $(document).ready(function(){
 	{
 		event.preventDefault();
 		$("#team-banner").hide();
-		//$("#t-Shirts").show(5);
-		//$("#rightT-shirt").show();
+		$("#t-Shirts").show();
+		$("#leftT-shirt").hide();
 		$("#paypal-button-container").show();
 		//console.log("left-team clicked");
 	});
 	
-	$("#right-team").click(function(e)
+	$("#right-team").click(function()
 	{
 		event.preventDefault();
 		$("#team-banner").hide();
-		//$("#t-Shirts").show(5);
-		//$("#leftT-shirt").show();
+		$("#t-Shirts").show();
+		$("#rightT-shirt").hide();
 		$("#paypal-button-container").show();
 		//console.log("right-team clicked");
 	});

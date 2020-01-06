@@ -4,10 +4,10 @@
   
 <!-- Compiled and minified JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
 <!-- Compiled and minified CSS -->
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <title>ANY GIVEN TEAM</title>
@@ -44,9 +44,8 @@
                         
                       <div id="drop-Fill" class="center drop-fill">
                       <h1 id="pick-text"class="white-text center flow-text">Pick The Game</h1>
-                          <!--<a class='dropdown-trigger' id="dropdownTrigger" data-target='dropdown1'></a> -->
-                           <div class="fixed-columns" style="width: 100%;">
-                          <div id="dropFill" >
+                           <!--<div class="fixed-columns carousel" style="width: 100%;">-->
+                          <div id="dropFillspot" class="carousel">
                             
                           </div>
                             
@@ -63,7 +62,7 @@
                 
 
 
-            <div id="t-Shirts">
+            <div id="t-Shirts" class="container">
               <form class="tShirts">
                 <div id = "leftT-shirt">
                   <div id="leftshirt-logo">
@@ -85,16 +84,16 @@
                 <form id="team-banner">
                   <h2>Pick Your Team</h2>
                   <button id ="left-team" class="leftteam card-panel">
-                    <div id="team-logo-left">team name 1
-                    <div id="team-info1-left">Info Left</div>
-                    <div id="team-info2-left">Data 1</div>
-                    <div id="team-info3-left">Stat 1</div>
+                    <div id="team-logo-left"><h3>team name 1</h3><br>
+                    <h5 id="team-info1-left">Info Left</h5>
+                    <h6 id="team-info2-left">Data 1</h6>
+                    <h6 id="team-info3-left">Stat 1</h6>
                   </button>    
                   <button id ="right-team" class="rightteam card-panel">
-                    <div id="team-logo-right">team name 2
-                    <div id="team-info1-right">Info Right</div>
-                    <div id="team-info2-right">Data 2</div>
-                    <div id="team-info3-right">Stat 2</div>
+                    <div id="team-logo-right"><h3>team name 2</h3><br>
+                    <h5 id="team-info1-right">Info Right</h5>
+                    <h6 id="team-info2-right">Data 2</h6>
+                    <h6 id="team-info3-right">Stat 2</h6>
                   </button>
                  
                 </form>
@@ -138,6 +137,8 @@
     </footer>
 
 
-  
+<script>
+
+  </script>
 </body>
 </html>
