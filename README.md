@@ -24,9 +24,12 @@ node server.js will get you going locally.
 * Wanted to use NFL API, prohibitively expensive in any form.
 * [Materialize CSS](https://materializecss.com/)
 
-## Authors
+## Authors / Contributors
 
 Brad Johnston twopheat@gmail.com
+Aidesiderio Alhambra - LegenDeri619
+cjmendez26
+tomatomodest
 
 ## License
 
